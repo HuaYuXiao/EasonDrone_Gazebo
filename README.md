@@ -4,6 +4,10 @@
 catkin_make install --source Simulator/prometheus_gazebo --build build/prometheus_gazebo
 ```
 
+```bash
+roslaunch prometheus_gazebo GFKD.launch
+```
+
 ## Release update notes:
 
 - **v1.0.4**: Add imu to Velodyne LiDAR
