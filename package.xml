@@ -1,24 +1,22 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>prometheus_gazebo</name>
-  <version>1.0.4</version>
+  <version>1.0.5</version>
   <description>
     The prometheus_gazebo package
   </description>
-
   <maintainer email="hyx020222@gmail.com">Eason Hua</maintainer>
+<author email="lcyfly1@163.com">colin</author>
 
   <license>Apache</license>
 
-  <build_depend>message_generation</build_depend>
-  <build_depend>std_msgs</build_depend>
-
-  <exec_depend>message_runtime</exec_depend>
-  <exec_depend>std_msgs</exec_depend>
-
   <buildtool_depend>catkin</buildtool_depend>
 
-  <build_export_depend>std_msgs</build_export_depend>
+  <depend>std_msgs</depend>
+
+  <build_depend>message_generation</build_depend>
+
+  <exec_depend>message_runtime</exec_depend>
 
   <export>
     <!-- Other tools can request additional information be placed here -->
