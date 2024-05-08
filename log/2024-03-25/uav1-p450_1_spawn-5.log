@@ -1,0 +1,19 @@
+[rospy.client][INFO] 2024-03-25 20:46:45,107: init_node, name[/uav1/p450_1_spawn], pid[9383]
+[xmlrpc][INFO] 2024-03-25 20:46:45,109: XML-RPC server binding to 0.0.0.0:0
+[xmlrpc][INFO] 2024-03-25 20:46:45,110: Started XML-RPC server [http://ubuntu:45091/]
+[rospy.impl.masterslave][INFO] 2024-03-25 20:46:45,110: _ready: http://ubuntu:45091/
+[rospy.registration][INFO] 2024-03-25 20:46:45,111: Registering with master node http://localhost:11311
+[rospy.init][INFO] 2024-03-25 20:46:45,111: ROS Slave URI: [http://ubuntu:45091/]
+[rospy.init][INFO] 2024-03-25 20:46:45,111: registered with master
+[rospy.rosout][INFO] 2024-03-25 20:46:45,111: initializing /rosout core topic
+[xmlrpc][INFO] 2024-03-25 20:46:45,111: xml rpc node: starting XML-RPC server
+[rospy.rosout][INFO] 2024-03-25 20:46:45,120: connected to core topic /rosout
+[rospy.simtime][INFO] 2024-03-25 20:46:45,124: /use_sim_time is not set, will not subscribe to simulated time [/clock] topic
+[rosout][INFO] 2024-03-25 20:46:45,142: Loading model XML from file /home/hyx020222/Prometheus/Simulator/gazebo_simulator/gazebo_models/uav_models/p450/p450.sdf
+[rosout][INFO] 2024-03-25 20:46:45,152: Waiting for service /gazebo/spawn_sdf_model
+[rospy.internal][INFO] 2024-03-25 20:46:45,385: topic[/rosout] adding connection to [/rosout], count 0
+[rosout][INFO] 2024-03-25 20:46:47,887: Calling service /gazebo/spawn_sdf_model
+[rosout][INFO] 2024-03-25 20:46:48,408: Spawn status: SpawnModel: Successfully spawned entity
+[rospy.core][INFO] 2024-03-25 20:46:48,410: signal_shutdown [atexit]
+[rospy.internal][INFO] 2024-03-25 20:46:48,411: topic[/rosout] removing connection to /rosout
+[rospy.impl.masterslave][INFO] 2024-03-25 20:46:48,412: atexit

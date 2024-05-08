@@ -1,0 +1,9 @@
+Type: prometheus_msgs/UAVState
+
+Publishers: 
+ * /uav_control/uav_control_main_1 (http://ubuntu:44819/)
+
+Subscribers: 
+ * /uav_control/uav_control_main_1 (http://ubuntu:44819/)
+
+
