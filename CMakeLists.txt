@@ -10,7 +10,6 @@ find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
   sensor_msgs
   std_msgs
-  gazebo_msgs
   prometheus_msgs
 )
 
@@ -29,9 +28,15 @@ include_directories(
 ###############################
 ##      声明可执行cpp文件     ##
 ###############################
-add_executable(set_model_state_example cpp_nodes/set_model_state_example.cpp)
-add_dependencies(set_model_state_example prometheus_gazebo_gencpp)
-target_link_libraries(set_model_state_example ${catkin_LIBRARIES})
+add_executable(set_model_state_example
+        src/cpp_nodes/set_model_state_example.cpp
+)
+add_dependencies(set_model_state_example
+        prometheus_gazebo_gencpp
+)
+target_link_libraries(set_model_state_example
+        ${catkin_LIBRARIES}
+)
 
 ## Mark cpp header files for installation
 install(DIRECTORY include/${PROJECT_NAME}/
