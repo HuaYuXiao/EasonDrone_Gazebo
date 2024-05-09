@@ -11,10 +11,13 @@ The prometheus_gazebo package, modified from [prometheus_gazebo](https://github.
 
 ## Release Note
 
+- v1.0.7: 
+  - add `imu` to D435i RGB-D Camera
+  - update `frame rate` and `fov` of D435i RGB-D Camera
 - v1.0.6: support `launch`
 - v1.0.5: import `gazebo_ros_p3d` to get Odometry of camera
-- v1.0.4: add imu to Velodyne LiDAR
-- v1.0.2: create a drone with Velodyne LiDAR & D435i Depth Camera
+- v1.0.4: add `imu` to Velodyne LiDAR
+- v1.0.2: create a drone with Velodyne LiDAR & D435i RGB-D Camera
 
 ```bash
 catkin_make install --source Simulator/prometheus_gazebo --build build/prometheus_gazebo
