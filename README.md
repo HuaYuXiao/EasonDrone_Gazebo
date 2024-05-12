@@ -15,6 +15,9 @@ The prometheus_gazebo package, modified from [prometheus_gazebo](https://github.
 - v1.0.8: 
   - add model `iris`, with Livox LiDAR & D435i RGB-D Camera
   - add model `typhoon_h480`
+  - add world `base`
+  - add world `cic2021`
+  - 
 - v1.0.7: 
   - add `imu` to D435i RGB-D Camera
   - update `frame rate` and `fov` of D435i RGB-D Camera
