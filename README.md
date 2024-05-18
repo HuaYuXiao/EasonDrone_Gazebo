@@ -10,11 +10,29 @@ The prometheus_gazebo package, modified from [prometheus_gazebo](https://github.
 ![1652374810652053942665216.png](img/1652374810652053942665216.png)
 
 
+## Drone Model
+
+### iris
+
+- 2D LiDAR
+- 3D LiDAR
+- D435i
+
+### P450
+
+- 2D LiDAR
+- 3D LiDAR
+- D435i
+
+### typhoon_h480
+
+
 ## Release Note
 
-- v1.0.8: 
+- v1.1.0: 
   - add model `iris`, with Livox LiDAR & D435i RGB-D Camera
   - add model `typhoon_h480`
+- v1.0.8: 
   - add world `base`
   - add world `cic2021`
   - update tf of `P450`
