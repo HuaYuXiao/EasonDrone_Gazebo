@@ -37,14 +37,6 @@ catkin_make install --source Simulator/prometheus_gazebo --build build/prometheu
 
 ## Launch
 
-load world
-
 ```bash
-roslaunch prometheus_gazebo GFKD.launch
-```
-
-load drone
-
-```bash
-roslaunch prometheus_gazebo sitl_$(arg model).launch
+roslaunch prometheus_gazebo simulation.launch
 ```

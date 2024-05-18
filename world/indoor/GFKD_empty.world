@@ -94,6 +94,27 @@
             <heading_deg>0</heading_deg>
         </spherical_coordinates>
 
+        <model name='prometheus_logo'>
+            <static>true</static>
+            <link name="prometheus_logo1">
+                <pose frame=''> 0.0 0.0 0.0 0.0 0.0 0.0</pose>
+                <visual name="visual">
+                    <cast_shadows>false</cast_shadows>
+                    <geometry>
+                        <box>
+                            <size>10.0 10.0 0.01</size>
+                        </box>
+                    </geometry>
+                    <material>
+                        <script>
+                            <uri>model://prometheus_texture/texture.material</uri>
+                            <name>prometheus_logo2</name>
+                        </script>
+                    </material>
+                </visual>
+            </link>
+        </model>
+
         <state world_name='default'>
             <sim_time>44 670000000</sim_time>
             <real_time>44 972408513</real_time>
