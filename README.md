@@ -17,7 +17,7 @@ The prometheus_gazebo package, modified from [prometheus_gazebo](https://github.
   - add model `typhoon_h480`
   - add world `base`
   - add world `cic2021`
-  - 
+  - update tf of `P450`
 - v1.0.7: 
   - add `imu` to D435i RGB-D Camera
   - update `frame rate` and `fov` of D435i RGB-D Camera
@@ -28,12 +28,23 @@ The prometheus_gazebo package, modified from [prometheus_gazebo](https://github.
 - v1.0.2: add model `P450`, with Velodyne LiDAR & D435i RGB-D Camera
 
 
-## Compile
+## Compilation
 
 ```bash
 catkin_make install --source Simulator/prometheus_gazebo --build build/prometheus_gazebo
 ```
 
+
+## Launch
+
+load world
+
 ```bash
 roslaunch prometheus_gazebo GFKD.launch
+```
+
+load drone
+
+```bash
+roslaunch prometheus_gazebo sitl_$(arg model).launch
 ```
