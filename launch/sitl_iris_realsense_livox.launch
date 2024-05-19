@@ -18,12 +18,12 @@
     <arg name="ID" value="$(eval arg('uav_id') - 1)"/>
     <!-- 无人机仿真模型及对应SDF文件路径 -->
     <arg name="model" default="iris_realsense_livox"/>
-    <arg name="sdf" default="$(find prometheus_gazebo)/gazebo_models/uav_models/iris/$(arg model)/$(arg model).sdf"/>
+    <arg name="sdf" default="$(find prometheus_gazebo)/gazebo_models/uav_models/$(arg model)/$(arg model).sdf"/>
 
     <!-- 无人机初始位置及偏航角 -->
     <arg name="uav_init_x" default="0.0"/>
     <arg name="uav_init_y" default="0.0"/>
-    <arg name="uav_init_z" default="0.0"/>
+    <arg name="uav_init_z" default="0.15"/>
     <arg name="uav_init_yaw" default="0.0"/>
     <arg name="uav_init_pitch" default="0.0"/>
     <arg name="uav_init_roll" default="0.0"/>

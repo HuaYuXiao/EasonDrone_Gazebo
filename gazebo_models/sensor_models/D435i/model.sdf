@@ -71,7 +71,7 @@
     </link>
 
     <link name="imu_link">
-      <pose>0 0 0 0 0 0</pose>
+      <pose>0 0 0 0 -0.35 0</pose>
       <inertial>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <mass>0.0015</mass>
@@ -99,6 +99,12 @@
           <rpyOffset>0 0 0</rpyOffset>
           <frameName>imu_link</frameName>
           <initialOrientationAsReference>false</initialOrientationAsReference>
+          <gyroscopeNoiseDensity>0.0006</gyroscopeNoiseDensity>
+          <gyroscopeRandomWalk>0.000003</gyroscopeRandomWalk>
+          <gyroscopeTurnOnBiasSigma>0.03</gyroscopeTurnOnBiasSigma>
+          <accelerometerNoiseDensity>0.002</accelerometerNoiseDensity>
+          <accelerometerRandomWalk>0.00002</accelerometerRandomWalk>
+          <accelerometerTurnOnBiasSigma>0.1</accelerometerTurnOnBiasSigma>
         </plugin>
       </sensor>
     </link>
@@ -154,7 +160,7 @@
           </noise>
         </camera>
         <always_on>1</always_on>
-        <update_rate>30</update_rate>
+        <update_rate>60</update_rate>
         <visualize>0</visualize>
       </sensor>
     </link>
@@ -210,7 +216,7 @@
           </noise>
         </camera>
         <always_on>1</always_on>
-        <update_rate>30</update_rate>
+        <update_rate>60</update_rate>
         <visualize>0</visualize>
       </sensor>
     </link>
@@ -266,7 +272,7 @@
           </noise>
         </camera>
         <always_on>1</always_on>
-        <update_rate>30</update_rate>
+        <update_rate>60</update_rate>
         <visualize>0</visualize>
       </sensor>
     </link>
@@ -321,7 +327,7 @@
           </noise>
         </camera>
         <always_on>1</always_on>
-        <update_rate>90</update_rate>
+        <update_rate>60</update_rate>
         <visualize>0</visualize>
 
         <!--plugin name="camera_plugin" filename="libgazebo_ros_openni_kinect.so">
@@ -370,9 +376,9 @@
     </joint>
 
     <plugin name="camera" filename="librealsense_gazebo_plugin.so">
-       <depthUpdateRate>90</depthUpdateRate>
-       <colorUpdateRate>30</colorUpdateRate>
-       <infraredUpdateRate>30</infraredUpdateRate>
+       <depthUpdateRate>60</depthUpdateRate>
+       <colorUpdateRate>60</colorUpdateRate>
+       <infraredUpdateRate>60</infraredUpdateRate>
        <depthTopicName>depth/image_raw</depthTopicName>
        <depthCameraInfoTopicName>depth/camera_info</depthCameraInfoTopicName>
        <colorTopicName>color/image_raw</colorTopicName>
@@ -389,8 +395,8 @@
        <rangeMaxDepth>10.0</rangeMaxDepth>
        <pointCloud>true</pointCloud>
        <pointCloudTopicName>depth/color/points</pointCloudTopicName>
-       <pointCloudCutoff>0.25</pointCloudCutoff>
-       <pointCloudCutoffMax>9.0</pointCloudCutoffMax>
+       <pointCloudCutoff>0.05</pointCloudCutoff>
+       <pointCloudCutoffMax>10.0</pointCloudCutoffMax>
      </plugin>
 
     <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
