@@ -33,12 +33,12 @@
 	<arg unless="$(arg interactive)" name="px4_command_arg1" value=""/>
 	<arg     if="$(arg interactive)" name="px4_command_arg1" value="-d"/>
 
-	<node pkg="px4" name="sitl" type="px4" output="screen"
+	<node pkg="px4" type="px4" name="sitl" output="screen"
 		  args="$(find px4)/ROMFS/px4fmu_common -s etc/init.d-posix/rcS -i $(arg ID) -w sitl_amov_$(arg ID) $(arg px4_command_arg1)">
 	</node>
 
 	<!-- 启动Gazebo模型 -->
-	<node pkg="gazebo_ros" name="$(arg model)_spawn" type="spawn_model" output="screen"
+	<node pkg="gazebo_ros" type="spawn_model" name="$(arg model)_spawn" output="screen"
 		  args="-sdf -file $(arg sdf) -model $(arg model) -x $(arg uav_init_x) -y $(arg uav_init_y) -z $(arg uav_init_z) -Y $(arg uav_init_yaw)">
 	</node>
 
