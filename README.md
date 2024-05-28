@@ -1,8 +1,8 @@
-# prometheus_gazebo
+# EasonDrone_Gazebo
 
-The prometheus_gazebo package, modified from [prometheus_gazebo](https://github.com/amov-lab/Prometheus/tree/v1.1/Simulator/gazebo_simulator)
+The easondrone_gazebo package.
 
-![HitCount](https://img.shields.io/endpoint?url=https%3A%2F%2Fhits.dwyl.com%2FHuaYuXiao%2Fprometheus_gazebo.json%3Fcolor%3Dpink)
+![HitCount](https://img.shields.io/endpoint?url=https%3A%2F%2Fhits.dwyl.com%2FHuaYuXiao%2Feasondrone_gazebo.json%3Fcolor%3Dpink)
 ![Static Badge](https://img.shields.io/badge/ROS-noetic-22314E?logo=ros)
 ![Static Badge](https://img.shields.io/badge/C%2B%2B-14-00599C?logo=cplusplus)
 ![Static Badge](https://img.shields.io/badge/Ubuntu-20.04.6-E95420?logo=ubuntu)
@@ -27,16 +27,46 @@ The prometheus_gazebo package, modified from [prometheus_gazebo](https://github.
 ### typhoon_h480
 
 
+## Compilation
+
+```bash
+catkin_make install --source Simulator/easondrone_gazebo --build build/easondrone_gazebo
+```
+
+
+## Launch
+
+PX4 official:
+
+```bash
+roslaunch px4 mavros_posix_sitl.launch
+```
+
+For iris:
+
+```bash
+roslaunch prometheus_gazebo simu_iris.launch
+python3 ~/Prometheus/Modules/uav_control/script/multirotor_communication.py iris 0
+python3 ~/Prometheus/Modules/uav_control/script/multirotor_keyboard_control.py iris 1 vel
+```
+
+For p450:
+
+```bash
+roslaunch prometheus_gazebo simu_p450.launch
+```
+
+
 ## Release Note
 
-- v1.1.0: 
+- v1.1.0:
   - add model `iris`, with Livox LiDAR & D435i RGB-D Camera
   - add model `typhoon_h480`
-- v1.0.8: 
+- v1.0.8:
   - add world `base`
   - add world `cic2021`
   - update tf of `P450`
-- v1.0.7: 
+- v1.0.7:
   - add `imu` to D435i RGB-D Camera
   - update `frame rate` and `fov` of D435i RGB-D Camera
   - update tf of D435i RGB-D Camera
@@ -46,15 +76,9 @@ The prometheus_gazebo package, modified from [prometheus_gazebo](https://github.
 - v1.0.2: add model `P450`, with Velodyne LiDAR & D435i RGB-D Camera
 
 
-## Compilation
+## Acknowledgement
 
-```bash
-catkin_make install --source Simulator/prometheus_gazebo --build build/prometheus_gazebo
-```
+Thanks to following packages:
 
-
-## Launch
-
-```bash
-roslaunch prometheus_gazebo simulation.launch
-```
+- [prometheus_gazebo](https://github.com/amov-lab/Prometheus/tree/v1.1/Simulator/gazebo_simulator)
+- 

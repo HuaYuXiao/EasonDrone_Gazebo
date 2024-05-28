@@ -1,16 +1,17 @@
 <?xml version="1.0"?>
 <package format="2">
-  <name>prometheus_gazebo</name>
+  <name>easondrone_gazebo</name>
   <version>1.1.0</version>
   <description>
-    The prometheus_gazebo package
+    The easondrone_gazebo package
   </description>
-  <maintainer email="hyx020222@gmail.com">Eason Hua</maintainer>
+
+  <maintainer email="12010508@mail.sustech.edu.cn">Eason Hua</maintainer>
 <author email="lcyfly1@163.com">colin</author>
+
   <license>Apache</license>
 
-  <url type="website">http://www.amovlab.com</url>
-  <url type="repository">https://github.com/HuaYuXiao/prometheus_gazebo.git</url>
+  <url type="repository">https://github.com/HuaYuXiao/easondrone_gazebo.git</url>
 
   <buildtool_depend>catkin</buildtool_depend>
 
@@ -21,6 +22,5 @@
   <exec_depend>message_runtime</exec_depend>
 
   <export>
-    <!-- Other tools can request additional information be placed here -->
   </export>
 </package>

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(prometheus_gazebo)
+project(easondrone_gazebo)
 
 find_package(catkin REQUIRED COMPONENTS
   gazebo_dev
@@ -12,7 +12,6 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   prometheus_msgs
 )
-
 ## System dependencies are found with CMake's conventions
 find_package(Boost REQUIRED COMPONENTS system)
 
@@ -25,6 +24,7 @@ include_directories(
     include
     ${catkin_INCLUDE_DIRS}
 )
+
 ###############################
 ##      声明可执行cpp文件     ##
 ###############################

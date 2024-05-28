@@ -1,0 +1,14 @@
+<launch>
+    <!-- world -->
+    <include file="$(find prometheus_gazebo)/launch/mavros_posix_sitl.launch"/>
+
+    <include file="$(find prometheus_gazebo)/launch/transform.launch"/>
+
+<!--    <include file="$(find uav_control)/launch/uav_control_indoor.launch"/>-->
+
+    <!-- STATION -->
+    <include file="$(find prometheus_station)/launch/prometheus_station.launch"/>
+
+    <!-- 启动rviz -->
+    <node type="rviz" name="rviz" pkg="rviz" args="-d $(find prometheus_gazebo)/config/simulation.rviz"/>
+</launch>
