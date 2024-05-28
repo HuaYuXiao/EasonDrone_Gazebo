@@ -30,7 +30,7 @@ The easondrone_gazebo package.
 ## Compilation
 
 ```bash
-catkin_make install --source Simulator/easondrone_gazebo --build build/easondrone_gazebo
+catkin_make install --source Simulator/EasonDrone_Gazebo --build Simulator/EasonDrone_Gazebo/build
 ```
 
 
