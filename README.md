@@ -10,23 +10,6 @@ The easondrone_gazebo package.
 ![1652374810652053942665216.png](img/1652374810652053942665216.png)
 
 
-## Drone Model
-
-### iris
-
-- 2D LiDAR
-- 3D LiDAR
-- D435i
-
-### P450
-
-- 2D LiDAR
-- 3D LiDAR
-- D435i
-
-### typhoon_h480
-
-
 ## Compilation
 
 ```bash
@@ -36,24 +19,22 @@ catkin_make install --source Simulator/EasonDrone_Gazebo --build Simulator/Eason
 
 ## Launch
 
-PX4 official:
+For p450:
 
 ```bash
-roslaunch px4 mavros_posix_sitl.launch
+roslaunch easondrone_gazebo simu_p450.launch
 ```
 
 For iris:
 
 ```bash
-roslaunch prometheus_gazebo simu_iris.launch
-python3 ~/Prometheus/Modules/uav_control/script/multirotor_communication.py iris 0
-python3 ~/Prometheus/Modules/uav_control/script/multirotor_keyboard_control.py iris 1 vel
+roslaunch easondrone_gazebo simu_iris.launch
 ```
 
-For p450:
+PX4 official:
 
 ```bash
-roslaunch prometheus_gazebo simu_p450.launch
+roslaunch px4 mavros_posix_sitl.launch
 ```
 
 
@@ -70,7 +51,7 @@ roslaunch prometheus_gazebo simu_p450.launch
   - add `imu` to D435i RGB-D Camera
   - update `frame rate` and `fov` of D435i RGB-D Camera
   - update tf of D435i RGB-D Camera
-- v1.0.6: support `launch`
+- v1.0.6: add support for `launch`
 - v1.0.5: import `gazebo_ros_p3d` to get Odometry of camera
 - v1.0.4: add `imu` to Velodyne LiDAR
 - v1.0.2: add model `P450`, with Velodyne LiDAR & D435i RGB-D Camera
@@ -80,5 +61,5 @@ roslaunch prometheus_gazebo simu_p450.launch
 
 Thanks to following packages:
 
-- [prometheus_gazebo](https://github.com/amov-lab/Prometheus/tree/v1.1/Simulator/gazebo_simulator)
-- 
+- [prometheus_gazebo](https://github.com/amov-lab/Prometheus/Simulator/gazebo_simulator)
+- [sitl_gazebo](https://github.com/PX4/sitl_gazebo)

@@ -14,7 +14,7 @@
     <arg name="est" default="ekf2"/>
     <arg name="vehicle" default="iris"/>
     <arg name="ID" default="0"/>
-    <arg name="world" default="$(find prometheus_gazebo)/world/indoor/Eason_indoor.world"/>
+    <arg name="world" default="$(find gazebo_ros)/launch/empty_world.world"/>
     <arg name="sdf" default="$(find mavlink_sitl_gazebo)/models/$(arg vehicle)/$(arg vehicle).sdf"/>
 
     <env name="PX4_SIM_MODEL" value="$(arg vehicle)"/>
@@ -38,7 +38,7 @@
         args="$(find px4)/build/px4_sitl_default/etc -s etc/init.d-posix/rcS -i $(arg ID) $(arg px4_command_arg1)" required="true"/>
 
     <!-- Gazebo sim -->
-    <include file="$(find prometheus_gazebo)/launch/empty_world.launch">
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
         <arg name="gui" value="$(arg gui)"/>
         <arg name="world_name" value="$(arg world)"/>
         <arg name="debug" value="$(arg debug)"/>

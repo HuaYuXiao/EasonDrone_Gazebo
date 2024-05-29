@@ -14,7 +14,7 @@
     <arg name="est" default="ekf2"/>
     <arg name="vehicle" default="iris"/>
     <arg name="ID" default="0"/>
-    <arg name="world" default="$(find prometheus_gazebo)/world/indoor/Eason_indoor.world"/>
+    <arg name="world" default="$(find easondrone_gazebo)/world/indoor/Eason_indoor.world"/>
     <arg name="sdf" default="$(find mavlink_sitl_gazebo)/models/$(arg vehicle)/$(arg vehicle).sdf"/>
 
     <!-- gazebo configs -->
@@ -30,7 +30,7 @@
     <arg name="interactive" default="true"/>
 
     <!-- PX4 SITL and Gazebo -->
-    <include file="$(find prometheus_gazebo)/launch/posix_sitl.launch">
+    <include file="$(find easondrone_gazebo)/launch/posix_sitl.launch">
         <arg name="x" value="$(arg x)"/>
         <arg name="y" value="$(arg y)"/>
         <arg name="z" value="$(arg z)"/>
