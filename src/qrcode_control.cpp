@@ -1,19 +1,18 @@
 //ROS 头文件
 #include <ros/ros.h>
 #include <iostream>
-
 //topic 头文件
 #include <gazebo_msgs/ModelState.h>
 #include <gazebo_msgs/ModelStates.h>
 #include <geometry_msgs/Pose.h>
 #include <geometry_msgs/Twist.h>
-#include <prometheus_msgs/DroneState.h>
+#include <easondrone_msgs/DroneState.h>
 
 using namespace std;
 
 geometry_msgs::Pose qrcode_pose;   
 geometry_msgs::Twist qrcode_twist; 
-prometheus_msgs::DroneState _Drone_state;   
+easondrone_msgs::DroneState _Drone_state;   
 gazebo_msgs::ModelState set_state;
 
 void modelStatesCallback(const gazebo_msgs::ModelStates::ConstPtr& msg)
@@ -29,11 +28,14 @@ void modelStatesCallback(const gazebo_msgs::ModelStates::ConstPtr& msg)
         }
     }
 }
-void drone_state_cb(const prometheus_msgs::DroneState::ConstPtr& msg)
+
+void drone_state_cb(const easondrone_msgs::DroneState::ConstPtr& msg)
 {
     _Drone_state = *msg;
 }
+
 void printf_result();
+
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>主函数<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
 int main(int argc, char **argv)
 {
@@ -41,7 +43,7 @@ int main(int argc, char **argv)
     ros::NodeHandle nh("~");
 
     ros::Subscriber model_sub = nh.subscribe<gazebo_msgs::ModelStates>("/gazebo/model_states", 10, modelStatesCallback);
-    ros::Subscriber drone_state_sub = nh.subscribe<prometheus_msgs::DroneState>("/prometheus/drone_state", 10, drone_state_cb);
+    ros::Subscriber drone_state_sub = nh.subscribe<easondrone_msgs::DroneState>("/easondrone/drone_state", 10, drone_state_cb);
 
     ros::Publisher state_pub = nh.advertise<gazebo_msgs::ModelState>("/gazebo/set_model_state", 10);
 

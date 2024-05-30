@@ -8,7 +8,7 @@
     <include file="$(find easondrone_control)/launch/control_p450_indoor.launch"/>
 
     <!-- STATION -->
-    <include file="$(find prometheus_station)/launch/prometheus_station.launch"/>
+    <include file="$(find easondrone_station)/launch/easondrone_station.launch"/>
 
     <!-- 启动octomap建图 -->
 <!--    <include file="$(find ego_planner)/launch/mapping.launch"/>-->

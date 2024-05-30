@@ -64,7 +64,7 @@
         <!--name标签，为导入的库文件定义名称，在当前sdf文件中不可重名-->
         <plugin name="laser" filename="libRayPlugin.so" /> <!--插入libRayPlugin.so插件，命名为laser-->
         <plugin name="2Dlidar" filename="libgazebo_ros_laser.so"><!--插入libgazebo_ros_laser.so插件，命名为2Dlidar,此插件提供gazebo中雷达与ros的数据交流-->
-          <topicName>/prometheus/sensors/2Dlidar_scan</topicName><!--定义gazebo中扫描到的雷达数据在ros中的话题名称-->
+          <topicName>/sensors/2Dlidar_scan</topicName><!--定义gazebo中扫描到的雷达数据在ros中的话题名称-->
           <frameName>lidar_link</frameName> <!--定义数据所在参考系名称为lidar_link-->
         </plugin>
 

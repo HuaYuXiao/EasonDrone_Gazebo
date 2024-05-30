@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(easondrone_gazebo)
 
+add_compile_options(-std=c++14)
+set(PYTHON_EXECUTABLE "/usr/bin/python3.8")
+
 find_package(catkin REQUIRED COMPONENTS
   gazebo_dev
   gazebo_msgs
@@ -10,7 +13,7 @@ find_package(catkin REQUIRED COMPONENTS
   geometry_msgs
   sensor_msgs
   std_msgs
-  prometheus_msgs
+  easondrone_msgs
 )
 ## System dependencies are found with CMake's conventions
 find_package(Boost REQUIRED COMPONENTS system)
@@ -28,23 +31,29 @@ include_directories(
 ###############################
 ##      声明可执行cpp文件     ##
 ###############################
-add_executable(set_model_state_example
-        src/cpp_nodes/set_model_state_example.cpp
-)
-add_dependencies(set_model_state_example
-        prometheus_gazebo_gencpp
-)
-target_link_libraries(set_model_state_example
-        ${catkin_LIBRARIES}
+add_executable(set_model_state_example src/set_model_state_example.cpp)
+add_dependencies(set_model_state_example easondrone_gazebo_gencpp)
+target_link_libraries(set_model_state_example ${catkin_LIBRARIES})
+
+catkin_install_python(PROGRAMS
+        scripts/get_ground_truth.py
+        scripts/get_ground_truth_formation.py
+        scripts/joystick_translator
+        scripts/keyboard_control_px4.py
+        scripts/laser_to_pointcloud.py
+        scripts/move_boxes.py
+        scripts/move_car.py
+        scripts/move_landing_pad.py
+        DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
 ## Mark cpp header files for installation
-install(DIRECTORY include/${PROJECT_NAME}/
+install(DIRECTORY include/${PROJECT_NAME}
   DESTINATION ${CATKIN_PACKAGE_INCLUDE_DESTINATION}
   FILES_MATCHING PATTERN "*.h"
 )
 
 ## Mark other files for installation (e.g. launch and bag files, etc.)
-install(DIRECTORY launch/
+install(DIRECTORY launch
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
 )

@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3.8
 
 import rospy
 from sensor_msgs.msg import PointCloud2 as pc2
@@ -8,8 +8,8 @@ from laser_geometry import LaserProjection
 class Laser2PC():
     def __init__(self):
         self.laserProj = LaserProjection()
-        self.pcPub = rospy.Publisher("/prometheus/sensors/pcl2", pc2, queue_size=1)
-        self.laserSub = rospy.Subscriber("/prometheus/sensors/2Dlidar_scan", LaserScan, self.laserCallback) 
+        self.pcPub = rospy.Publisher("/sensors/pcl2", pc2, queue_size=1)
+        self.laserSub = rospy.Subscriber("/sensors/2Dlidar_scan", LaserScan, self.laserCallback)
 
     def laserCallback(self,data):
         

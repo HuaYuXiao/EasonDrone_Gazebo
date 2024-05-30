@@ -7,7 +7,7 @@
     <include file="$(find easondrone_control)/launch/control_iris_indoor.launch"/>
 
     <!-- STATION -->
-    <include file="$(find prometheus_station)/launch/prometheus_station.launch"/>
+    <include file="$(find easondrone_station)/launch/easondrone_station.launch"/>
 
     <!-- 启动rviz -->
     <node type="rviz" name="rviz" pkg="rviz" args="-d $(find easondrone_gazebo)/config/simulation.rviz"/>
