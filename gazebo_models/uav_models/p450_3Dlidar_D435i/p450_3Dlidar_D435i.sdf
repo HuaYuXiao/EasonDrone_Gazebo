@@ -9,7 +9,6 @@
       <uri>model://3Dlidar</uri>
       <pose>0 0 0.16 0 0 0</pose>
     </include>
-
     <joint name="3Dlidar_joint" type="fixed">
       <child>3Dlidar::link</child>
       <parent>p450::base_link</parent>
@@ -26,7 +25,6 @@
       <uri>model://D435i</uri>
       <pose>0.095 0 0 0 0.35 0</pose>
     </include>
-
     <joint name="D435i_joint" type="fixed">
       <child>D435i::camera_link</child>
       <parent>p450::base_link</parent>
