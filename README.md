@@ -44,9 +44,8 @@ roslaunch px4 mavros_posix_sitl.launch
   - add model `iris`, with Livox LiDAR & D435i RGB-D Camera
   - add model `typhoon_h480`
 - v1.0.8:
-  - add world `base`
-  - add world `cic2021`
   - update tf of `P450`
+  - add some world
 - v1.0.7:
   - add `imu` to D435i RGB-D Camera
   - update `frame rate` and `fov` of D435i RGB-D Camera

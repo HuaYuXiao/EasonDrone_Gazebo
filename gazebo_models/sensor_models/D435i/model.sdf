@@ -23,6 +23,12 @@
             <uri>model://D435i/meshes/realsense_d435.stl</uri>
           </mesh>
         </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Green</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
       </visual>
       <collision name='collision'>
         <pose>0 0 0 0 0 0</pose>
@@ -71,7 +77,7 @@
     </link>
 
     <link name="imu_link">
-      <pose>0 0 0 0 -0.35 0</pose>
+      <pose>0 0 0 0 0 0</pose>
       <inertial>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <mass>0.0015</mass>

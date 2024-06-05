@@ -44,7 +44,7 @@
         </geometry>
         <material>
           <script>
-            <name>Gazebo/Grey</name>
+            <name>Gazebo/Yellow</name>
             <uri>file://media/materials/scripts/gazebo.material</uri>
           </script>
         </material>
@@ -127,7 +127,7 @@
         </geometry>
         <material>
           <script>
-            <name>Gazebo/FlatBlack</name>
+            <name>Gazebo/Red</name>
             <uri>file://media/materials/scripts/gazebo.material</uri>
           </script>
         </material>
@@ -193,7 +193,7 @@
         </geometry>
         <material>
           <script>
-            <name>Gazebo/FlatBlack</name>
+            <name>Gazebo/Red</name>
             <uri>file://media/materials/scripts/gazebo.material</uri>
           </script>
         </material>
@@ -259,7 +259,7 @@
         </geometry>
         <material>
           <script>
-            <name>Gazebo/FlatBlack</name>
+            <name>Gazebo/Red</name>
             <uri>file://media/materials/scripts/gazebo.material</uri>
           </script>
         </material>
@@ -325,7 +325,7 @@
         </geometry>
         <material>
           <script>
-            <name>Gazebo/FlatBlack</name>
+            <name>Gazebo/Red</name>
             <uri>file://media/materials/scripts/gazebo.material</uri>
           </script>
         </material>

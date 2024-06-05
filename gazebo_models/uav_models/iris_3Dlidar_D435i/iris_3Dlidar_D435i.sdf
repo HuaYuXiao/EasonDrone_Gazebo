@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <sdf version="1.6">
-  <model name="p450_3Dlidar_D435i">
+  <model name="iris_3Dlidar_D435i">
     <include>
-      <uri>model://p450</uri>
+      <uri>model://iris</uri>
     </include>
 
     <include>

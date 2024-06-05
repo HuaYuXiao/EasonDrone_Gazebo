@@ -22,6 +22,12 @@
             <uri>model://3Dlidar/meshes/VLP16_base_1.dae</uri>
           </mesh>
         </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Blue</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
       </visual>
       <visual name="visual2">
         <geometry>
@@ -29,6 +35,12 @@
             <uri>model://3Dlidar/meshes/VLP16_base_2.dae</uri>
           </mesh>
         </geometry>
+        <material>
+          <script>
+            <name>Gazebo/Blue</name>
+            <uri>file://media/materials/scripts/gazebo.material</uri>
+          </script>
+        </material>
       </visual>
       <visual name="visual3">
         <geometry>
