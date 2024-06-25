@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <sdf version="1.6">
-  <model name="p450_3Dlidar_D435i">
+  <model name="p450_Eason">
     <include>
       <uri>model://p450</uri>
     </include>
@@ -26,7 +26,25 @@
       <pose>0.135 0 0.002 0 0 0</pose>
     </include>
     <joint name="D435i_joint" type="fixed">
-      <child>D435i::camera_link</child>
+      <child>D435i::link</child>
+      <parent>p450::base_link</parent>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <upper>0</upper>
+          <lower>0</lower>
+        </limit>
+      </axis>
+    </joint>
+
+    <!-- 下视相机link -->
+    <include>
+      <uri>model://monocular</uri>
+      <!--位置-->
+      <pose>0.0775 0 0.055 0 1.5707963 0</pose>
+    </include>
+    <joint name="monocular_joint" type="fixed">
+      <child>monocular::link</child>
       <parent>p450::base_link</parent>
       <axis>
         <xyz>0 0 1</xyz>

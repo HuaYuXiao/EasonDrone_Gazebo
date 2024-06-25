@@ -17,7 +17,7 @@
 	<!-- 使用group标签来对不同的无人机进行分组，因此，不同无人机的话题会带上前缀，如/uav0、/uav1等 -->
 	<arg name="ID" value="$(eval arg('uav_id') - 1)"/>
 	<!-- 无人机仿真模型及对应SDF文件路径 -->
-	<arg name="model" default="p450_3Dlidar_D435i"/>
+	<arg name="model" default="p450_Eason"/>
 	<arg name="sdf" default="$(find easondrone_gazebo)/gazebo_models/uav_models/$(arg model)/$(arg model).sdf"/>
 
 	<!-- 无人机初始位置及偏航角 -->

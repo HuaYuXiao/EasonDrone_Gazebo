@@ -2,12 +2,12 @@
 <sdf version='1.6'>
     <!--模型名字，单目相机-->
     <model name='monocular'>
-    <pose>0.0 0.0 -0.05 0 0 0</pose><!--位置信息-->
+    <pose>0.0 0.0 0 0 0 0</pose><!--位置信息-->
     <!--申明一个link，名字为link-->
       <link name='link'>
       <!--物理属性-->
         <inertial>
-          <mass>0.001</mass> <!--质量-->
+          <mass>0.01</mass> <!--质量-->
           <!--惯性标签，定义模型当前link的惯性矩，是一个对称正定3x3矩阵-->
           <inertia>
             <ixx>4.15e-6</ixx>
@@ -23,7 +23,7 @@
         <!--geometry标签，定义当前link的几何形状-->
           <geometry>
             <box>
-              <size>0.01 0.01 0.01</size>  <!--长宽高分别为0.01的矩形-->
+              <size>0.015 0.035 0.035</size>  <!--长宽高分别为0.01的矩形-->
             </box>
           </geometry>
         </visual>
@@ -35,8 +35,8 @@
             <horizontal_fov>2.0944</horizontal_fov> <!--定义水平视野场，此处为120度-->
             <!--image标签，功能是定义以像素为单位的图片大小和图片格式-->
             <image>
-              <width>1280</width>  <!--图片大小为1280*720-->
-              <height>720</height>
+              <width>640</width>  <!--图片大小为1280*720-->
+              <height>360</height>
             </image>
             <!--定义远、近剪裁面，不会渲染远、近剪裁平面之外的对象-->
             <clip>
@@ -71,7 +71,6 @@
           <!--插件标签，它可以作为world、model、sensor的子元素-->
           <!--插入一个名为camere_plugin的libgazebo_ros_camera.so插件，此插件的作用是关联摄像头-->
           <plugin name='camera_plugin' filename='libgazebo_ros_camera.so'>
-              <robotNamespace>/prometheus</robotNamespace>   <!--机器人的命名空间为/prometheus-->
               <alwaysOn>true</alwaysOn> 
               <imageTopicName>image_raw</imageTopicName> <!--申明摄像头发布的消息话题为image_raw-->
               <cameraInfoTopicName>camera_info</cameraInfoTopicName> <!--用于发布相机信息的主题名称为camera_info-->
