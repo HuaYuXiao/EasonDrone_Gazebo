@@ -40,7 +40,6 @@ catkin_install_python(PROGRAMS
         scripts/get_ground_truth_formation.py
         scripts/joystick_translator
         scripts/keyboard_control_px4.py
-        scripts/laser_to_pointcloud.py
         scripts/move_boxes.py
         scripts/move_car.py
         scripts/move_landing_pad.py
