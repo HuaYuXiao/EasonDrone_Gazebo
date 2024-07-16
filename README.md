@@ -31,12 +31,6 @@ For iris:
 roslaunch easondrone_gazebo simu_iris.launch
 ```
 
-PX4 official:
-
-```bash
-roslaunch px4 mavros_posix_sitl.launch
-```
-
 
 ## Release Note
 
