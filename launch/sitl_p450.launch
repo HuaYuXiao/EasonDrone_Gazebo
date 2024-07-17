@@ -34,8 +34,7 @@
 	<arg     if="$(arg interactive)" name="px4_command_arg1" value="-d"/>
 
 	<node pkg="px4" type="px4" name="sitl" output="screen"
-		  args="$(find px4)/ROMFS/px4fmu_common -s etc/init.d-posix/rcS -i $(arg ID) -w sitl_amov_$(arg ID) $(arg px4_command_arg1)">
-	</node>
+		  args="$(find px4)/build/px4_sitl_default/etc -s etc/init.d-posix/rcS -i $(arg ID) $(arg px4_command_arg1)" required="true"/>
 
 	<!-- 启动Gazebo模型 -->
 	<node pkg="gazebo_ros" type="spawn_model" name="$(arg model)_spawn" output="screen"
