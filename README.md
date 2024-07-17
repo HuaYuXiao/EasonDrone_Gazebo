@@ -12,7 +12,8 @@ The easondrone_gazebo package.
 
 ## Compilation
 
-```bash
+```shell
+cd ~/EasonDrone
 catkin_make install --source Simulator/EasonDrone_Gazebo --build Simulator/EasonDrone_Gazebo/build
 ```
 
@@ -21,13 +22,13 @@ catkin_make install --source Simulator/EasonDrone_Gazebo --build Simulator/Eason
 
 For p450:
 
-```bash
+```shell
 roslaunch easondrone_gazebo simu_p450.launch
 ```
 
 For iris:
 
-```bash
+```shell
 roslaunch easondrone_gazebo simu_iris.launch
 ```
 
