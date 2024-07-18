@@ -8,8 +8,8 @@
     <!-- TF for 3D lidar-->
     <!-- 3Dlidar_link是3D激光雷达坐标系 -->
     <!-- 机体系与3Dlidar_link的坐标转换关系见 amov_solo_3Dlidar.sdf -->
-    <node pkg="tf" type="static_transform_publisher" name="base2lidar3d"
-          args="0 0 0.16 0 0 0 base_link 3Dlidar_link 30"/>
+    <node pkg="tf" type="static_transform_publisher" name="base2velodyne"
+          args="0 0 0.16 0 0 0 base_link VLP16_link 30"/>
 
     <!-- TF for realsense_camera-->
     <!-- realsense_camera_link是D435i坐标系 -->

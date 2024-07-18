@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <sdf version="1.6">
-  <model name="3Dlidar">
+  <model name="VLP16">
     <link name="link">
       <!-- 物理参数 -->
       <inertial>
         <pose>0 0 0 0 0 0</pose>
-        <mass>0.3</mass>
+        <mass>0.59</mass>
         <inertia>
           <ixx>4.15e-6</ixx>
           <ixy>0</ixy>
@@ -19,7 +19,7 @@
       <visual name="visual1">
         <geometry>
           <mesh>
-            <uri>model://3Dlidar/meshes/VLP16_base_1.dae</uri>
+            <uri>model://VLP16/meshes/VLP16_base_1.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -32,7 +32,7 @@
       <visual name="visual2">
         <geometry>
           <mesh>
-            <uri>model://3Dlidar/meshes/VLP16_base_2.dae</uri>
+            <uri>model://VLP16/meshes/VLP16_base_2.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -45,12 +45,12 @@
       <visual name="visual3">
         <geometry>
           <mesh>
-            <uri>model://3Dlidar/meshes/VLP16_scan.dae</uri>
+            <uri>model://VLP16/meshes/VLP16_scan.dae</uri>
           </mesh>
         </geometry>
       </visual>
       <!-- 传感器参数设置 -->
-      <sensor type='ray' name='3Dlidar'>
+      <sensor type='ray' name='VLP16'>
           <ray>
             <scan>
               <horizontal>
@@ -62,21 +62,21 @@
               <vertical>
                 <!-- 16线 -->
                 <samples>16</samples>
-                <min_angle>-0.2617993877991494365</min_angle>
-                <max_angle>0.2617993877991494365</max_angle>
+                <min_angle>-0.349065850398886</min_angle>
+                <max_angle>0.349065850398886</max_angle>
               </vertical>
             </scan>
             <range>
               <min>0.4</min>
-              <max>100</max>
+              <max>200</max>
               <resolution>0.001</resolution>
             </range>
           </ray>
           <plugin name='3D_laser' filename='libgazebo_ros_velodyne_laser.so'>
             <topicName>/velodyne_points</topicName>
-            <frameName>3Dlidar_link</frameName>
+            <frameName>VLP16_link</frameName>
             <min_range>0.4</min_range>
-            <max_range>20</max_range>
+            <max_range>200</max_range>
             <gaussianNoise>0.001</gaussianNoise>
           </plugin>
           <always_on>1</always_on>
@@ -106,7 +106,7 @@
         <topic>__default_topic__</topic>
         <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
           <robotNamespace/>
-          <topicName>/velodyne/imu</topicName>
+          <topicName>/velodyne_imu</topicName>
           <bodyName>lidar_imu_link</bodyName>
           <updateRateHZ>20.0</updateRateHZ>
           <gaussianNoise>0.0</gaussianNoise>
