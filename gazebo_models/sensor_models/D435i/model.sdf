@@ -2,7 +2,7 @@
 <sdf version="1.6">
   <model name="D435i">
     <link name="link">
-      <pose>-0.02 0 0.12 1.57 0.0 1.57</pose>
+      <pose>0 0 0 1.57 0.0 1.57</pose>
       <inertial>
         <mass>0.0564</mass>
         <inertia>
@@ -25,7 +25,7 @@
         </geometry>
         <material>
           <script>
-            <name>Gazebo/Green</name>
+            <name>Gazebo/Grey</name>
             <uri>file://media/materials/scripts/gazebo.material</uri>
           </script>
         </material>
@@ -336,30 +336,30 @@
         <update_rate>60</update_rate>
         <visualize>0</visualize>
 
-        <!--plugin name="camera_plugin" filename="libgazebo_ros_openni_kinect.so">
-          <baseline>0.2</baseline>
-          <alwaysOn>true</alwaysOn>
-          <updateRate>20.0</updateRate>
-          <cameraName>realsense_d435i</cameraName>
-          <imageTopicName>/realsense_d435i/color/image_raw</imageTopicName>
-          <cameraInfoTopicName>/realsense_d435i/color/camera_info</cameraInfoTopicName>
-          <depthImageTopicName>/realsense_d435i/depth/image_raw</depthImageTopicName>
-          <depthImageCameraInfoTopicName>/realsense_d435i/depth/camera_info</depthImageCameraInfoTopicName>
-          <pointCloudTopicName>/realsense_plugin/camera/local_pointclouds</pointCloudTopicName>
-          <frameName>/realsense_camera_link</frameName>
-          <pointCloudCutoff>0.1</pointCloudCutoff>
-          <pointCloudCutoffMax>10.0</pointCloudCutoffMax>
-          <distortionK1>0</distortionK1>
-          <distortionK2>0</distortionK2>
-          <distortionK3>0</distortionK3>
-          <distortionT1>0</distortionT1>
-          <distortionT2>0</distortionT2>
-          <CxPrime>0</CxPrime>
-          <Cx>0</Cx>
-          <Cy>0</Cy>
-          <focalLength>639.997649</focalLength>
-          <hackBaseline>0</hackBaseline>
-        </plugin-->
+<!--        <plugin name="camera_plugin" filename="libgazebo_ros_openni_kinect.so">-->
+<!--          <baseline>0.2</baseline>-->
+<!--          <alwaysOn>true</alwaysOn>-->
+<!--          <updateRate>20.0</updateRate>-->
+<!--          <cameraName>realsense_d435i</cameraName>-->
+<!--          <imageTopicName>/realsense_d435i/color/image_raw</imageTopicName>-->
+<!--          <cameraInfoTopicName>/realsense_d435i/color/camera_info</cameraInfoTopicName>-->
+<!--          <depthImageTopicName>/realsense_d435i/depth/image_raw</depthImageTopicName>-->
+<!--          <depthImageCameraInfoTopicName>/realsense_d435i/depth/camera_info</depthImageCameraInfoTopicName>-->
+<!--          <pointCloudTopicName>/realsense_plugin/camera/local_pointclouds</pointCloudTopicName>-->
+<!--          <frameName>/realsense_camera_link</frameName>-->
+<!--          <pointCloudCutoff>0.1</pointCloudCutoff>-->
+<!--          <pointCloudCutoffMax>10.0</pointCloudCutoffMax>-->
+<!--          <distortionK1>0</distortionK1>-->
+<!--          <distortionK2>0</distortionK2>-->
+<!--          <distortionK3>0</distortionK3>-->
+<!--          <distortionT1>0</distortionT1>-->
+<!--          <distortionT2>0</distortionT2>-->
+<!--          <CxPrime>0</CxPrime>-->
+<!--          <Cx>0</Cx>-->
+<!--          <Cy>0</Cy>-->
+<!--          <focalLength>184.751041</focalLength>-->
+<!--          <hackBaseline>0</hackBaseline>-->
+<!--        </plugin>-->
       </sensor>
     </link>
     <joint name='camera_depth_joint' type='revolute'>
@@ -385,14 +385,14 @@
        <depthUpdateRate>60</depthUpdateRate>
        <colorUpdateRate>60</colorUpdateRate>
        <infraredUpdateRate>60</infraredUpdateRate>
-       <depthTopicName>depth/image_raw</depthTopicName>
-       <depthCameraInfoTopicName>depth/camera_info</depthCameraInfoTopicName>
-       <colorTopicName>color/image_raw</colorTopicName>
-       <colorCameraInfoTopicName>color/camera_info</colorCameraInfoTopicName>
-       <infrared1TopicName>infra1/image_raw</infrared1TopicName>
-       <infrared1CameraInfoTopicName>infra1/camera_info</infrared1CameraInfoTopicName>
-       <infrared2TopicName>infra2/image_raw</infrared2TopicName>
-       <infrared2CameraInfoTopicName>infra2/camera_info</infrared2CameraInfoTopicName>
+       <depthTopicName>/camera/depth/image_raw</depthTopicName>
+       <depthCameraInfoTopicName>/camera/depth/camera_info</depthCameraInfoTopicName>
+       <colorTopicName>/camera/color/image_raw</colorTopicName>
+       <colorCameraInfoTopicName>/camera/color/camera_info</colorCameraInfoTopicName>
+       <infrared1TopicName>/camera/infra1/image_raw</infrared1TopicName>
+       <infrared1CameraInfoTopicName>/camera/infra1/camera_info</infrared1CameraInfoTopicName>
+       <infrared2TopicName>/camera/infra2/image_raw</infrared2TopicName>
+       <infrared2CameraInfoTopicName>/camera/infra2/camera_info</infrared2CameraInfoTopicName>
        <colorOpticalframeName>camera_link</colorOpticalframeName>
        <depthOpticalframeName>camera_depth_frame</depthOpticalframeName>
        <infrared1OpticalframeName>camera_ired1_frame</infrared1OpticalframeName>
@@ -400,20 +400,9 @@
        <rangeMinDepth>0.2</rangeMinDepth>
        <rangeMaxDepth>10.0</rangeMaxDepth>
        <pointCloud>true</pointCloud>
-       <pointCloudTopicName>depth/color/points</pointCloudTopicName>
+       <pointCloudTopicName>/camera/depth/color/points</pointCloudTopicName>
        <pointCloudCutoff>0.05</pointCloudCutoff>
        <pointCloudCutoffMax>10.0</pointCloudCutoffMax>
      </plugin>
-
-    <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
-      <alwaysOn>true</alwaysOn>
-      <updateRate>100</updateRate>
-      <bodyName>camera_link</bodyName>
-      <topicName>camera/odom</topicName>
-      <gaussianNoise>0.0</gaussianNoise>
-      <frameName>map</frameName>
-      <xyzOffsets>0 0 0</xyzOffsets>
-      <rpyOffsets>0 0 0</rpyOffsets>
-    </plugin>
   </model>
 </sdf>
