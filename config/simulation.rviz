@@ -9,13 +9,13 @@ Panels:
         - /Sensor1/RGBD1
         - /Sensor1/LiDAR1
         - /Mapping1
-        - /Planning1
       Splitter Ratio: 0.43611112236976624
     Tree Height: 692
   - Class: rviz/Selection
     Name: Selection
   - Class: rviz/Tool Properties
-    Expanded: ~
+    Expanded:
+      - /2D Nav Goal1
     Name: Tool Properties
     Splitter Ratio: 0.5886790156364441
   - Class: rviz/Views
@@ -58,8 +58,6 @@ Visualization Manager:
       Filter (whitelist): ""
       Frame Timeout: 15
       Frames:
-        3Dlidar_link:
-          Value: true
         All Enabled: false
         D435i::camera_depth_frame:
           Value: true
@@ -67,10 +65,14 @@ Visualization Manager:
           Value: true
         D435i::imu_link:
           Value: true
+        VLP16_link:
+          Value: true
         base_link:
           Value: true
         base_link_frd:
           Value: false
+        lidar_2d:
+          Value: true
         map:
           Value: true
         map_ned:
@@ -98,14 +100,16 @@ Visualization Manager:
         world:
           map:
             base_link:
-              3Dlidar_link:
-                {}
               D435i::camera_link:
                 D435i::camera_depth_frame:
                   {}
                 D435i::imu_link:
                   {}
+              VLP16_link:
+                {}
               base_link_frd:
+                {}
+              lidar_2d:
                 {}
               rplidar::link:
                 {}
@@ -258,8 +262,8 @@ Visualization Manager:
             - Alpha: 0.30000001192092896
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: 2.8820972442626953
-                Min Value: -0.17190337181091309
+                Max Value: 2.9922473430633545
+                Min Value: -0.031674981117248535
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -278,7 +282,7 @@ Visualization Manager:
               Size (Pixels): 3
               Size (m): 0.05000000074505806
               Style: Flat Squares
-              Topic: /sensors/3Dlidar_scan
+              Topic: /velodyne_points
               Unreliable: false
               Use Fixed Frame: true
               Use rainbow: true
@@ -340,57 +344,13 @@ Visualization Manager:
           Size (Pixels): 3
           Size (m): 0.05000000074505806
           Style: Points
-          Topic: /prometheus/merged_pcl
+          Topic: /merged_pcl
           Unreliable: false
           Use Fixed Frame: true
           Use rainbow: true
           Value: true
       Enabled: false
       Name: Mapping
-    - Class: rviz/Group
-      Displays:
-        - Class: rviz/Marker
-          Enabled: true
-          Marker Topic: /ego_planner_node/goal_point
-          Name: goal_point
-          Namespaces:
-            {}
-          Queue Size: 100
-          Value: true
-        - Class: rviz/Marker
-          Enabled: false
-          Marker Topic: /ego_planner_node/global_list
-          Name: global_path
-          Namespaces:
-            {}
-          Queue Size: 100
-          Value: false
-        - Class: rviz/Marker
-          Enabled: true
-          Marker Topic: /ego_planner_node/optimal_list
-          Name: optimal_traj
-          Namespaces:
-            {}
-          Queue Size: 100
-          Value: true
-        - Class: rviz/Marker
-          Enabled: true
-          Marker Topic: /ego_planner_node/a_star_list
-          Name: AStar
-          Namespaces:
-            {}
-          Queue Size: 100
-          Value: true
-        - Class: rviz/Marker
-          Enabled: true
-          Marker Topic: /ego_planner_node/init_list
-          Name: InitTraj
-          Namespaces:
-            {}
-          Queue Size: 100
-          Value: true
-      Enabled: false
-      Name: Planning
   Enabled: true
   Global Options:
     Background Color: 255; 253; 224
@@ -404,6 +364,8 @@ Visualization Manager:
     - Class: rviz/Select
     - Class: rviz/FocusCamera
     - Class: rviz/Measure
+    - Class: rviz/SetGoal
+      Topic: /move_base_simple/goal
   Value: true
   Views:
     Current:
