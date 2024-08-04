@@ -2,22 +2,24 @@
 <sdf version="1.6">
   <model name="D435i">
     <link name="link">
-      <pose>0 0 0 1.57 0.0 1.57</pose>
       <inertial>
         <mass>0.0564</mass>
         <inertia>
-          <ixx>4.1e-05</ixx>
+          <ixx>9.108e-05</ixx>
           <ixy>0</ixy>
           <ixz>0</ixz>
-          <iyy>5.9e-06</iyy>
+          <iyy>2.51e-06</iyy>
           <iyz>0</iyz>
-          <izz>5.9e-06</izz>
+          <izz>8.931e-05</izz>
         </inertia>
+        <pose>0 0 0 0 0 0</pose>
       </inertial>
       <self_collide>0</self_collide>
+      <enable_wind>0</enable_wind>
       <kinematic>0</kinematic>
       <gravity>1</gravity>
       <visual name="visual">
+        <pose>0 0 0 1.5707963 0 1.5707963</pose>
         <geometry>
          <mesh>
             <uri>model://D435i/meshes/realsense_d435.stl</uri>
@@ -74,37 +76,115 @@
           </contact>
         </surface>
       </collision>
-    </link>
 
-    <link name="imu_link">
-      <pose>0 0 0 0 0 0</pose>
-      <inertial>
-        <pose frame=''>0 0 0 0 -0 0</pose>
-        <mass>0.0015</mass>
-        <inertia>
-          <ixx>1e-06</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>1e-06</iyy>
-          <iyz>0</iyz>
-          <izz>1e-06</izz>
-        </inertia>
-      </inertial>
+      <sensor name="stereo" type="multicamera">
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+        <camera name="left">
+          <pose>0 0.06 0 0 0 0</pose>
+          <horizontal_fov>1.5708</horizontal_fov>
+          <image>
+            <width>752</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>300</far>
+          </clip>
+        </camera>
+        <camera name="right">
+          <pose>0 -0.06 0 0 0 0</pose>
+          <horizontal_fov>1.5708</horizontal_fov>
+          <image>
+            <width>752</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>300</far>
+          </clip>
+        </camera>
+        <plugin name="stereo_camera_controller" filename="libgazebo_ros_multicamera.so">
+          <robotNamespace>realsense</robotNamespace>
+          <alwaysOn>true</alwaysOn>
+          <updateRate>30</updateRate>
+          <cameraName>/stereo_camera</cameraName>
+          <imageTopicName>image_raw</imageTopicName>
+          <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+          <frameName>realsense_camera_frame</frameName>
+          <hackBaseline>0.12</hackBaseline>
+          <Fx>376.0</Fx>
+          <Fy>376.0</Fy>
+          <Cx>376.0</Cx>
+          <Cy>240.0</Cy>
+          <distortionK1>-0.1</distortionK1>
+          <distortionK2>0.01</distortionK2>
+          <distortionK3>0.0</distortionK3>
+          <distortionT1>5e-5</distortionT1>
+          <distortionT2>-1e-4</distortionT2>
+        </plugin>
+      </sensor>
+
+      <sensor name="depth" type="depth">
+        <update_rate>20</update_rate>
+        <visualize>true</visualize>
+        <camera>
+          <horizontal_fov>1.047198</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+            <format>R8G8B8</format>
+          </image>
+          <clip>
+            <near>0.05</near>
+            <far>100</far>
+          </clip>
+        </camera>
+        <plugin name="kinect_controller" filename="libgazebo_ros_openni_kinect.so">
+          <robotNamespace>realsense</robotNamespace>
+          <baseline>0.2</baseline>
+          <alwaysOn>true</alwaysOn>
+          <updateRate>20</updateRate>
+          <cameraName>/depth_camera</cameraName>
+          <imageTopicName>color/image_raw</imageTopicName>
+          <cameraInfoTopicName>color/camera_info</cameraInfoTopicName>
+          <depthImageTopicName>depth/image_raw</depthImageTopicName>
+          <depthImageInfoTopicName>depth/camera_info</depthImageInfoTopicName>
+          <pointCloudTopicName>depth/points</pointCloudTopicName>
+          <frameName>realsense_camera_frame</frameName>
+          <pointCloudCutoff>0.05</pointCloudCutoff>
+          <pointCloudCutoffMax>10</pointCloudCutoffMax>
+          <distortionK1>0.00000001</distortionK1>
+          <distortionK2>0.00000001</distortionK2>
+          <distortionK3>0.00000001</distortionK3>
+          <distortionT1>0.00000001</distortionT1>
+          <distortionT2>0.00000001</distortionT2>
+          <CxPrime>0</CxPrime>
+          <Cx>0</Cx>
+          <Cy>0</Cy>
+          <focalLength>0</focalLength>
+          <hackBaseline>0</hackBaseline>
+        </plugin>
+      </sensor>
+
       <sensor name="imu_sensor" type="imu">
         <always_on>true</always_on>
-        <update_rate>100</update_rate>
+        <parent>link</parent>
+        <update_rate>500</update_rate>
         <visualize>true</visualize>
-        <topic>__default_topic__</topic>
+        <topic>imu/data</topic>
         <plugin filename="libgazebo_ros_imu_sensor.so" name="imu_plugin">
-          <robotNamespace/>
-          <topicName>/camera/imu</topicName>
-          <bodyName>imu_link</bodyName>
-          <updateRateHZ>100.0</updateRateHZ>
+          <robotNamespace>realsense</robotNamespace>
+          <topicName>imu/data</topicName>
+          <bodyName>imu_link_stereo</bodyName>
+          <updateRateHZ>500.0</updateRateHZ>
           <gaussianNoise>0.0</gaussianNoise>
           <xyzOffset>0 0 0</xyzOffset>
           <rpyOffset>0 0 0</rpyOffset>
-          <frameName>imu_link</frameName>
-          <initialOrientationAsReference>false</initialOrientationAsReference>
+          <frameName>realsense_camera_frame</frameName>
           <gyroscopeNoiseDensity>0.0006</gyroscopeNoiseDensity>
           <gyroscopeRandomWalk>0.000003</gyroscopeRandomWalk>
           <gyroscopeTurnOnBiasSigma>0.03</gyroscopeTurnOnBiasSigma>
@@ -112,297 +192,8 @@
           <accelerometerRandomWalk>0.00002</accelerometerRandomWalk>
           <accelerometerTurnOnBiasSigma>0.1</accelerometerTurnOnBiasSigma>
         </plugin>
+        <pose>0 0 0 0 0 0</pose>
       </sensor>
     </link>
-     <joint name='camera_imu_joint' type='revolute'>
-      <child>imu_link</child>
-      <parent>camera_link</parent>
-      <axis>
-        <xyz>1 0 0</xyz>
-        <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
-        </limit>
-        <dynamics>
-          <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-        </dynamics>
-        <use_parent_model_frame>1</use_parent_model_frame>
-      </axis>
-    </joint>
-
-    <link name="camera_color_frame">
-      <pose>0 0 0.12 0 0 0</pose>
-      <inertial>
-        <pose frame=''>0 0 0 0 -0 0</pose>
-        <mass>0.0015</mass>
-        <inertia>
-          <ixx>1e-06</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>1e-06</iyy>
-          <iyz>0</iyz>
-          <izz>1e-06</izz>
-        </inertia>
-      </inertial>
-      <sensor name="color" type="camera">
-        <camera name="color">
-          <horizontal_fov>1.204</horizontal_fov>
-          <image>
-            <width>640</width>
-            <height>480</height>
-            <format>RGB_INT8</format>
-          </image>
-          <clip>
-            <near>0.1</near>
-            <far>100</far>
-          </clip>
-          <noise>
-            <type>gaussian</type>
-            <mean>0.0</mean>
-            <stddev>0.007</stddev>
-          </noise>
-        </camera>
-        <always_on>1</always_on>
-        <update_rate>60</update_rate>
-        <visualize>0</visualize>
-      </sensor>
-    </link>
-    <joint name='camera_color_joint' type='revolute'>
-      <child>camera_color_frame</child>
-      <parent>camera_link</parent>
-      <axis>
-        <xyz>1 0 0</xyz>
-        <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
-        </limit>
-        <dynamics>
-          <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-        </dynamics>
-        <use_parent_model_frame>1</use_parent_model_frame>
-      </axis>
-    </joint>
-
-    <link name="camera_ired1_frame">
-      <pose>0 0.03 0.12 0 0 0</pose>
-      <inertial>
-        <pose frame=''>0 0 0 0 -0 0</pose>
-        <mass>0.0015</mass>
-        <inertia>
-          <ixx>1e-06</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>1e-06</iyy>
-          <iyz>0</iyz>
-          <izz>1e-06</izz>
-        </inertia>
-      </inertial>
-      <sensor name="ired1" type="camera">
-        <camera name="ired1">
-          <horizontal_fov>1.571</horizontal_fov>
-          <image>
-            <width>640</width>
-            <height>480</height>
-            <format>L_INT8</format>
-          </image>
-          <clip>
-            <near>0.1</near>
-            <far>100</far>
-          </clip>
-          <noise>
-            <type>gaussian</type>
-            <mean>0.0</mean>
-            <stddev>0.007</stddev>
-          </noise>
-        </camera>
-        <always_on>1</always_on>
-        <update_rate>60</update_rate>
-        <visualize>0</visualize>
-      </sensor>
-    </link>
-    <joint name='camera_ired1_joint' type='revolute'>
-      <child>camera_ired1_frame</child>
-      <parent>camera_link</parent>
-      <axis>
-        <xyz>1 0 0</xyz>
-        <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
-        </limit>
-        <dynamics>
-          <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-        </dynamics>
-        <use_parent_model_frame>1</use_parent_model_frame>
-      </axis>
-    </joint>
-
-    <link name="camera_ired2_frame">
-      <pose>0 -0.03 0.12 0 0 0</pose>
-      <inertial>
-        <pose frame=''>0 0 0 0 -0 0</pose>
-        <mass>0.0015</mass>
-        <inertia>
-          <ixx>1e-06</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>1e-06</iyy>
-          <iyz>0</iyz>
-          <izz>1e-06</izz>
-        </inertia>
-      </inertial>
-      <sensor name="ired2" type="camera">
-        <camera name="ired2">
-          <horizontal_fov>1.571</horizontal_fov>
-          <image>
-            <width>640</width>
-            <height>480</height>
-            <format>L_INT8</format>
-          </image>
-          <clip>
-            <near>0.1</near>
-            <far>100</far>
-          </clip>
-          <noise>
-            <type>gaussian</type>
-            <mean>0.0</mean>
-            <stddev>0.007</stddev>
-          </noise>
-        </camera>
-        <always_on>1</always_on>
-        <update_rate>60</update_rate>
-        <visualize>0</visualize>
-      </sensor>
-    </link>
-    <joint name='camera_ired2_joint' type='revolute'>
-      <child>camera_ired2_frame</child>
-      <parent>camera_link</parent>
-      <axis>
-        <xyz>1 0 0</xyz>
-        <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
-        </limit>
-        <dynamics>
-          <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-        </dynamics>
-        <use_parent_model_frame>1</use_parent_model_frame>
-      </axis>
-    </joint>
-
-    <link name="camera_depth_frame">
-      <pose>0.12 0 0 0.0 0.0 0.0</pose>
-      <inertial>
-        <pose frame=''>0 0 0 0 -0 0</pose>
-        <mass>0.0015</mass>
-        <inertia>
-          <ixx>1e-06</ixx>
-          <ixy>0</ixy>
-          <ixz>0</ixz>
-          <iyy>1e-06</iyy>
-          <iyz>0</iyz>
-          <izz>1e-06</izz>
-        </inertia>
-      </inertial>
-      <sensor name="depth" type="depth">
-        <camera name="depth">
-          <horizontal_fov>1.518</horizontal_fov>
-          <image>
-            <width>640</width>
-            <height>480</height>
-          </image>
-          <clip>
-            <near>0.1</near>
-            <far>100</far>
-          </clip>
-          <noise>
-            <type>gaussian</type>
-            <mean>0.0</mean>
-            <stddev>0.007</stddev>
-          </noise>
-        </camera>
-        <always_on>1</always_on>
-        <update_rate>60</update_rate>
-        <visualize>0</visualize>
-
-<!--        <plugin name="camera_plugin" filename="libgazebo_ros_openni_kinect.so">-->
-<!--          <baseline>0.2</baseline>-->
-<!--          <alwaysOn>true</alwaysOn>-->
-<!--          <updateRate>20.0</updateRate>-->
-<!--          <cameraName>realsense_d435i</cameraName>-->
-<!--          <imageTopicName>/realsense_d435i/color/image_raw</imageTopicName>-->
-<!--          <cameraInfoTopicName>/realsense_d435i/color/camera_info</cameraInfoTopicName>-->
-<!--          <depthImageTopicName>/realsense_d435i/depth/image_raw</depthImageTopicName>-->
-<!--          <depthImageCameraInfoTopicName>/realsense_d435i/depth/camera_info</depthImageCameraInfoTopicName>-->
-<!--          <pointCloudTopicName>/realsense_plugin/camera/local_pointclouds</pointCloudTopicName>-->
-<!--          <frameName>/realsense_camera_link</frameName>-->
-<!--          <pointCloudCutoff>0.1</pointCloudCutoff>-->
-<!--          <pointCloudCutoffMax>10.0</pointCloudCutoffMax>-->
-<!--          <distortionK1>0</distortionK1>-->
-<!--          <distortionK2>0</distortionK2>-->
-<!--          <distortionK3>0</distortionK3>-->
-<!--          <distortionT1>0</distortionT1>-->
-<!--          <distortionT2>0</distortionT2>-->
-<!--          <CxPrime>0</CxPrime>-->
-<!--          <Cx>0</Cx>-->
-<!--          <Cy>0</Cy>-->
-<!--          <focalLength>184.751041</focalLength>-->
-<!--          <hackBaseline>0</hackBaseline>-->
-<!--        </plugin>-->
-      </sensor>
-    </link>
-    <joint name='camera_depth_joint' type='revolute'>
-      <child>camera_depth_frame</child>
-      <parent>camera_link</parent>
-      <axis>
-        <xyz>1 0 0</xyz>
-        <limit>
-          <lower>0</lower>
-          <upper>0</upper>
-          <effort>0</effort>
-          <velocity>0</velocity>
-        </limit>
-        <dynamics>
-          <spring_reference>0</spring_reference>
-          <spring_stiffness>0</spring_stiffness>
-        </dynamics>
-        <use_parent_model_frame>1</use_parent_model_frame>
-      </axis>
-    </joint>
-
-    <plugin name="camera" filename="librealsense_gazebo_plugin.so">
-       <depthUpdateRate>60</depthUpdateRate>
-       <colorUpdateRate>60</colorUpdateRate>
-       <infraredUpdateRate>60</infraredUpdateRate>
-       <depthTopicName>/camera/depth/image_raw</depthTopicName>
-       <depthCameraInfoTopicName>/camera/depth/camera_info</depthCameraInfoTopicName>
-       <colorTopicName>/camera/color/image_raw</colorTopicName>
-       <colorCameraInfoTopicName>/camera/color/camera_info</colorCameraInfoTopicName>
-       <infrared1TopicName>/camera/infra1/image_raw</infrared1TopicName>
-       <infrared1CameraInfoTopicName>/camera/infra1/camera_info</infrared1CameraInfoTopicName>
-       <infrared2TopicName>/camera/infra2/image_raw</infrared2TopicName>
-       <infrared2CameraInfoTopicName>/camera/infra2/camera_info</infrared2CameraInfoTopicName>
-       <colorOpticalframeName>camera_link</colorOpticalframeName>
-       <depthOpticalframeName>camera_depth_frame</depthOpticalframeName>
-       <infrared1OpticalframeName>camera_ired1_frame</infrared1OpticalframeName>
-       <infrared2OpticalframeName>camera_ired2_frame</infrared2OpticalframeName>
-       <rangeMinDepth>0.2</rangeMinDepth>
-       <rangeMaxDepth>10.0</rangeMaxDepth>
-       <pointCloud>true</pointCloud>
-       <pointCloudTopicName>/camera/depth/color/points</pointCloudTopicName>
-       <pointCloudCutoff>0.05</pointCloudCutoff>
-       <pointCloudCutoffMax>10.0</pointCloudCutoffMax>
-     </plugin>
   </model>
 </sdf>
