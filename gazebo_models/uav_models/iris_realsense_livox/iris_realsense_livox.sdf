@@ -570,6 +570,7 @@
       <accelerometerBiasCorrelationTime>300.0</accelerometerBiasCorrelationTime>
       <accelerometerTurnOnBiasSigma>0.196</accelerometerTurnOnBiasSigma>
     </plugin>
+
     <include>
       <uri>model://realsense_camera</uri>
       <pose>0.1 0 0 0 0 0</pose>
