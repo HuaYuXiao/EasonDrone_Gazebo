@@ -87,7 +87,7 @@
       </axis>
     </joint>
     <link name='rotor_0'>
-			<pose>0.1465 -0.147 0.151 0 0 0</pose>
+			<pose>0.1465 -0.147 0.196 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.005</mass>
@@ -153,7 +153,7 @@
       </axis>
     </joint>
     <link name='rotor_1'>
-			<pose>-0.1465 0.147 0.151 0 0 0</pose>
+			<pose>-0.1465 0.147 0.196 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.005</mass>
@@ -219,7 +219,7 @@
       </axis>
     </joint>
     <link name='rotor_2'>
-			<pose>0.1465 0.147 0.151 0 0 0</pose>
+			<pose>0.1465 0.147 0.196 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.005</mass>
@@ -285,7 +285,7 @@
       </axis>
     </joint>
     <link name='rotor_3'>
-			<pose>-0.1465 -0.147 0.151 0 0 0</pose>
+			<pose>-0.1465 -0.147 0.196 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.005</mass>
