@@ -7,8 +7,6 @@ The easondrone_gazebo package.
 ![Static Badge](https://img.shields.io/badge/C%2B%2B-14-00599C?logo=cplusplus)
 ![Static Badge](https://img.shields.io/badge/Ubuntu-20.04.6-E95420?logo=ubuntu)
 
-![1652374810652053942665216.png](img/1652374810652053942665216.png)
-
 
 ## Compilation
 
@@ -21,13 +19,11 @@ catkin_make install --source Simulator/EasonDrone_Gazebo --build Simulator/Eason
 ## Launch
 
 For p450:
-
 ```shell
 roslaunch easondrone_gazebo simu_p450.launch
 ```
 
 For iris:
-
 ```shell
 roslaunch easondrone_gazebo simu_iris.launch
 ```

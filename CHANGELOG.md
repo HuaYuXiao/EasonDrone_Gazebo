@@ -8,6 +8,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [v1.1.3] - 2024-08-05
 - update `Eason_indoor.world`, add more features
 - [new feature]: output odometry of drone via `libgazebo_ros_p3d`
+- [new feature]: add model `landmark`, for camera calibration
+- update model `Intel RealSense D435i`, `p450`
 
 ## [v1.1.2] - 2024-08-04
 - add model `Intel RealSense R200`
