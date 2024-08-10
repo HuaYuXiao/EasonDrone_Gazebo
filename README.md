@@ -22,7 +22,7 @@ roslaunch easondrone_gazebo simulation.launch
 
 ## Acknowledgement
 
-Thanks to following packages:
+Thanks for following packages:
 
 - [prometheus_gazebo](https://github.com/amov-lab/Prometheus/Simulator/gazebo_simulator)
-- [sitl_gazebo](https://github.com/PX4/sitl_gazebo)
+- [sitl_config](https://gitee.com/robin_shaun/XTDrone/tree/master/sitl_config)
