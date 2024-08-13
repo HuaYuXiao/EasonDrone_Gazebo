@@ -9,6 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [new model] `round_bucket`
 - [new model] `basketball_court`
 - [new world] `cuadc.world`, with `basketball_court`, `round_bucket`, `landing_pad`
+- update parameters of `monocular_camera`
+- modify lisence from `Apache` to `GPLv3`
 
 ## [v1.1.3] - 2024-08-05
 - update `Eason_indoor.world`, add more features

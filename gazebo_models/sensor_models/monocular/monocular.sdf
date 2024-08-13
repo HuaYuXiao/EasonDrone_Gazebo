@@ -35,8 +35,8 @@
             <horizontal_fov>2.0944</horizontal_fov> <!--定义水平视野场，此处为120度-->
             <!--image标签，功能是定义以像素为单位的图片大小和图片格式-->
             <image>
-              <width>640</width>  <!--图片大小为1280*720-->
-              <height>360</height>
+              <width>1280</width>  <!--图片大小为1280*720-->
+              <height>720</height>
             </image>
             <!--定义远、近剪裁面，不会渲染远、近剪裁平面之外的对象-->
             <clip>
@@ -77,9 +77,9 @@
               <updateRate>30.0</updateRate> <!--更新频率为30-->
               <cameraName>monocular</cameraName> <!--摄像机命名为Monocular-->
               <frameName>/monocular_link</frameName><!--定义数据所在的参考系为/monocular_link-->
-              <CxPrime>640</CxPrime> <!--CxPrime为640-->
-              <Cx>640</Cx> <!--Cx为640-->
-              <Cy>360</Cy> <!--Cy为360-->
+              <CxPrime>640</CxPrime>
+              <Cx>640</Cx>
+              <Cy>360</Cy>
               <hackBaseline>0</hackBaseline>
               <focalLength>369.502083</focalLength> <!--焦距为369.502083-->
               <distortionK1>0.0</distortionK1><!--畸变参数k1为0-->
