@@ -9,5 +9,5 @@
           args="0 0 0.205 0 0 0 base_link VLP16_link 100"/>
 
     <node pkg="tf" type="static_transform_publisher" name="base2monocular"
-          args="0.0775 0 0.1 0 1.5707963 0 base_link monocular_link 100"/>
+          args="0.0775 0 0.1 1.57 3.14 0 base_link monocular_link 100"/>
 </launch>
