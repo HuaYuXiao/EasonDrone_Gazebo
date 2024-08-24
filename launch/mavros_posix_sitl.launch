@@ -5,17 +5,15 @@
     <!-- vehicle pose -->
     <arg name="x" default="0"/>
     <arg name="y" default="0"/>
-    <arg name="z" default="0"/>
+    <arg name="z" default="0.05"/>
     <arg name="R" default="0"/>
     <arg name="P" default="0"/>
     <arg name="Y" default="0"/>
-
     <!-- vehicle model and world -->
     <arg name="est" default="ekf2"/>
     <arg name="vehicle" default="iris"/>
-    <arg name="ID" default="0"/>
     <arg name="world" default="$(find easondrone_gazebo)/world/indoor/Eason_indoor.world"/>
-    <arg name="sdf" default="$(find mavlink_sitl_gazebo)/models/$(arg vehicle)/$(arg vehicle).sdf"/>
+    <arg name="sdf" default="$(find easondrone_gazebo)/gazebo_models/uav_models/iris_eason/iris_eason.sdf"/>
 
     <!-- gazebo configs -->
     <arg name="gui" default="true"/>
@@ -23,14 +21,11 @@
     <arg name="verbose" default="false"/>
     <arg name="paused" default="false"/>
     <arg name="respawn_gazebo" default="false"/>
-    <!-- MAVROS configs -->
-    <arg name="fcu_url" default="udp://:14540@localhost:14557"/>
-    <arg name="respawn_mavros" default="false"/>
     <!-- PX4 configs -->
     <arg name="interactive" default="true"/>
 
     <!-- PX4 SITL and Gazebo -->
-    <include file="$(find easondrone_gazebo)/launch/posix_sitl.launch">
+    <include file="$(find px4)/launch/posix_sitl.launch">
         <arg name="x" value="$(arg x)"/>
         <arg name="y" value="$(arg y)"/>
         <arg name="z" value="$(arg z)"/>
@@ -48,17 +43,28 @@
         <arg name="respawn_gazebo" value="$(arg respawn_gazebo)"/>
     </include>
 
-    <!-- 启动MAVROS -->
-    <arg name="udp_offboard_port_remote" value="$(eval 14540 + arg('ID'))"/>
-    <arg name="udp_offboard_port_local" value="$(eval 14580 + arg('ID'))"/>
+    <!-- MAVROS -->
+    <!-- vim: set ft=xml noet : -->
+    <!-- example launch script for PX4 based FCU's -->
+    <!-- MAVROS configs -->
+    <arg name="fcu_url" default="udp://:14540@localhost:14557"/>
+    <arg name="respawn_mavros" default="false"/>
+    <arg name="gcs_url" default="" />
+    <arg name="tgt_system" default="1" />
+    <arg name="tgt_component" default="1" />
+    <arg name="log_output" default="screen" />
+    <arg name="fcu_protocol" default="v2.0" />
 
-    <node pkg="mavros" type="mavros_node" name="mavros" output="screen">
-        <param name="fcu_url" value="udp://:$(arg udp_offboard_port_remote)@localhost:$(arg udp_offboard_port_local)"/>
-        <param name="gcs_url" value=""/>
-        <param name="target_system_id" value="$(eval 1 + arg('ID'))"/>
-        <param name="target_component_id" value="1" />
+    <include file="$(find mavros)/launch/node.launch">
+        <arg name="pluginlists_yaml" value="$(find easondrone_gazebo)/config/px4_pluginlists.yaml" />
+        <arg name="config_yaml" value="$(find easondrone_gazebo)/config/px4_config.yaml" />
 
-        <rosparam command="load" file="$(find mavros)/launch/px4_config.yaml" />
-        <rosparam command="load" file="$(find mavros)/launch/px4_pluginlists.yaml" />
-    </node>
+        <arg name="fcu_url" value="$(arg fcu_url)" />
+        <arg name="gcs_url" value="$(arg gcs_url)" />
+        <arg name="tgt_system" value="$(arg tgt_system)" />
+        <arg name="tgt_component" value="$(arg tgt_component)" />
+        <arg name="log_output" value="$(arg log_output)" />
+        <arg name="fcu_protocol" value="$(arg fcu_protocol)" />
+        <arg name="respawn_mavros" default="$(arg respawn_mavros)" />
+    </include>
 </launch>

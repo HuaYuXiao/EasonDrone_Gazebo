@@ -1,17 +1,17 @@
 <?xml version="1.0"?>
 <sdf version="1.6">
-  <model name="p450_Eason">
+  <model name="iris_eason">
     <include>
-      <uri>model://p450</uri>
+      <uri>model://iris</uri>
     </include>
 
     <include>
-      <uri>model://VLP16</uri>
-      <pose>0 0 0.205 0 0 0</pose>
+      <uri>model://D435i</uri>
+      <pose>0.11 0 0 0 0 0</pose>
     </include>
-    <joint name="VLP16_joint" type="fixed">
-      <child>VLP16::link</child>
-      <parent>p450::base_link</parent>
+    <joint name="realsense_camera_joint" type="revolute">
+      <child>D435i::link</child>
+      <parent>iris::base_link</parent>
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
@@ -22,12 +22,12 @@
     </joint>
 
     <include>
-      <uri>model://D435i</uri>
-      <pose>0.1025 0 0.167 0 0 0</pose>
+      <uri>model://VLP16</uri>
+      <pose>0 0 0.045 0 0 0</pose>
     </include>
-    <joint name="realsense_camera_joint" type="revolute">
-      <child>D435i::link</child>
-      <parent>p450::base_link</parent>
+    <joint name="VLP16_joint" type="fixed">
+      <child>VLP16::link</child>
+      <parent>iris::base_link</parent>
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
@@ -41,11 +41,11 @@
     <include>
       <uri>model://monocular</uri>
       <!--位置-->
-      <pose>0.0775 0 0.1 0 1.5707963 0</pose>
+      <pose>0 0 -0.045 0 1.5707963 0</pose>
     </include>
     <joint name="monocular_joint" type="fixed">
       <child>monocular::link</child>
-      <parent>p450::base_link</parent>
+      <parent>iris::base_link</parent>
       <axis>
         <xyz>0 0 1</xyz>
         <limit>
@@ -59,8 +59,8 @@
     <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
       <robotNamespace>gazebo</robotNamespace>
       <alwaysOn>true</alwaysOn>
-      <updateRate>50.0</updateRate>
-      <bodyName>p450::base_link</bodyName>
+      <updateRate>250.0</updateRate>
+      <bodyName>iris::base_link</bodyName>
       <topicName>groundtruth/odom</topicName>
       <gaussianNoise>0.01</gaussianNoise>
       <frameName>map</frameName>
