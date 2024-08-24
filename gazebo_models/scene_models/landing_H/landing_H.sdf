@@ -15,17 +15,10 @@
           <izz>0.001</izz>
         </inertia>
       </inertial>
-      <collision name="collision">
-        <geometry>
-          <box>
-            <size>0.8 0.8 0.01</size>
-          </box>
-        </geometry>
-      </collision>
       <visual name="visual">
         <geometry>
           <box>
-            <size>0.6 0.6 0.02</size>
+            <size>0.8 0.8 0.005</size>
           </box>
         </geometry>
         <material>
@@ -37,14 +30,5 @@
         </material>
       </visual>
     </link>
-
-    <!-- <plugin name="object_controller" filename="libgazebo_ros_planar_move.so">
-      <commandTopic>cmd_vel</commandTopic>
-      <odometryTopic>odom</odometryTopic>
-      <odometryFrame>odom</odometryFrame>
-      <odometryRate>30.0</odometryRate>
-      <robotBaseFrame>base_link</robotBaseFrame>
-    </plugin> -->
-
   </model>
 </sdf>

@@ -26,6 +26,12 @@
               <size>0.015 0.035 0.035</size>  <!--长宽高分别为0.01的矩形-->
             </box>
           </geometry>
+            <material>
+                <script>
+                    <name>Gazebo/Black</name>
+                    <uri>file://media/materials/scripts/gazebo.material</uri>
+                </script>
+            </material>
         </visual>
         <!--传感器标签，定义一个名叫camera的传感器，它的类型是camera-->
         <sensor name='camera' type='camera'><!--注意type是SDF提供的，name是自己定义的，在当前sensor中必须唯一-->
