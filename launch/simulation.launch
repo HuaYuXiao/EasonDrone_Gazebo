@@ -5,6 +5,8 @@
 
     <include file="$(find px4ctrl)/launch/px4ctrl.launch"/>
 
+    <node type="odom_visualization" pkg="odom_visualization" name="odom_visualization"/>
+
     <!-- 启动rviz -->
     <node type="rviz" name="rviz" pkg="rviz" args="-d $(find easondrone_gazebo)/config/simulation.rviz"/>
 </launch>
