@@ -320,7 +320,7 @@ Visualization Manager:
     - Class: rviz/FocusCamera
     - Class: rviz/Measure
     - Class: rviz/SetGoal
-      Topic: /move_base_simple/goal
+      Topic: /planning/direct_goal
   Value: true
   Views:
     Current:
