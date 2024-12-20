@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<sdf version="1.6">
+  <model name="livox_mid360">
+    <link name="livox_base">
+      <inertial>
+        <mass>0.1</mass>
+        <inertia>
+          <ixx>0.01</ixx>
+          <iyy>0.01</iyy>
+          <izz>0.01</izz>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyz>0</iyz>
+        </inertia>
+      </inertial>
+
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://livox_mid360/meshes/livox_mid360.dae</uri>
+          </mesh>
+        </geometry>
+      </visual>
+
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://livox_mid360/meshes/livox_mid360.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+
+      <sensor name="laser_livox" type="ray">
+        <pose>0 0 0 0 0 0</pose>  <!-- Position of the sensor -->
+
+        <plugin name="gazebo_ros_laser_controller" filename="liblivox_laser_simulation.so">
+          <csv_file_name>/home/easonhua/easondrone_ws/simulate/easondrone_gazebo/gazebo_models/sensor_models/livox_mid360/scan_mode/livox_mid360.csv</csv_file_name>  <!-- Path to CSV file -->
+          
+          <ray>
+            <scan>
+              <horizontal>
+                <samples>100</samples>
+                <resolution>1</resolution>
+                <min_angle>0.0</min_angle>  <!-- Min angle for horizontal scan -->
+                <max_angle>6.28319</max_angle>  <!-- Max angle for horizontal scan -->
+              </horizontal>
+              <vertical>
+                <samples>360</samples>
+                <resolution>1</resolution>
+                <min_angle>-0.126126</min_angle>  <!-- Min angle for vertical scan -->
+                <max_angle>0.964467</max_angle>  <!-- Max angle for vertical scan -->
+              </vertical>
+            </scan>
+            <range>
+              <min>0.1</min>
+              <max>200.0</max>
+              <resolution>0.002</resolution>
+            </range>
+            <noise>
+              <type>gaussian</type>
+              <mean>0.0</mean>
+              <stddev>0.01</stddev>
+            </noise>
+          </ray>
+
+          <visualize>false</visualize>
+          <samples>24000</samples>  <!-- Number of samples for the ray scan -->
+          <downsample>1</downsample>  <!-- Downsampling factor -->
+          <ros_topic>/livox/lidar</ros_topic>  <!-- ROS topic to publish sensor data -->
+        </plugin>
+
+        <update_rate>10</update_rate>  <!-- Update rate for the sensor -->
+        <always_on>1</always_on>  <!-- Always keep the sensor on -->
+        <visualize>false</visualize>  <!-- Whether to visualize the sensor data in Gazebo -->
+      </sensor>
+    </link>
+  </model>
+</sdf>
