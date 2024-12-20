@@ -1,47 +1,16 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(easondrone_gazebo)
 
-add_compile_options(-std=c++14)
+add_compile_options(-std=c++17)
 set(PYTHON_EXECUTABLE "/usr/bin/python3.8")
 
 find_package(catkin REQUIRED COMPONENTS
   gazebo_dev
   gazebo_msgs
-  gazebo_ros
-  message_generation      
+  gazebo_ros    
   roscpp
-  geometry_msgs
-  sensor_msgs
-  std_msgs
-  easondrone_msgs
 )
 ## System dependencies are found with CMake's conventions
 find_package(Boost REQUIRED COMPONENTS system)
 
-catkin_package(
-  INCLUDE_DIRS include
-  CATKIN_DEPENDS message_runtime
-)
-
-include_directories(
-    include
-    ${catkin_INCLUDE_DIRS}
-)
-
-###############################
-##      声明可执行cpp文件     ##
-###############################
-add_executable(set_model_state_example src/set_model_state_example.cpp)
-add_dependencies(set_model_state_example easondrone_gazebo_gencpp)
-target_link_libraries(set_model_state_example ${catkin_LIBRARIES})
-
-catkin_install_python(PROGRAMS
-        scripts/get_ground_truth.py
-        scripts/get_ground_truth_formation.py
-        scripts/joystick_translator
-        scripts/keyboard_control_px4.py
-        scripts/move_boxes.py
-        scripts/move_car.py
-        scripts/move_landing_pad.py
-        DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-)
+catkin_package()

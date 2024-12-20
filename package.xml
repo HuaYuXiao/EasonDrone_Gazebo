@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package format="2">
   <name>easondrone_gazebo</name>
-  <version>1.2.0</version>
+  <version>1.2.1</version>
   <description>
     The easondrone_gazebo package
   </description>
@@ -13,12 +13,6 @@
   <url type="repository">https://github.com/HuaYuXiao/easondrone_gazebo.git</url>
 
   <buildtool_depend>catkin</buildtool_depend>
-
-  <depend>std_msgs</depend>
-
-  <build_depend>message_generation</build_depend>
-
-  <exec_depend>message_runtime</exec_depend>
 
   <export>
   </export>
