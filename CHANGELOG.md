@@ -5,8 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v1.2.1 - 2024-12-20
+- [new model:sensor] `livox_mid360`
+- [new model:drone] `iris_d435i_mid360`
+- [remove model:sensor] `livox_mid40`
+- remove all scripts
+
 ## v1.2.0 - 2024-08-24
-- [new model] `iris_eason`, with `Velodyne VLP 16`, `Intel RealSense D435i` and `monocular camera`'
+- [new model] `iris_d435i_vlp16`, with `Velodyne VLP 16`, `Intel RealSense D435i` and `monocular camera`'
 - remove useless models
 - remove useless config files
 
@@ -21,12 +27,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - update `Eason_indoor.world`, add more features
 - [new feature]: output odometry of drone via `libgazebo_ros_p3d`
 - [new model] add model `landmark`, for camera calibration
-- update model `Intel RealSense D435i`, `p450`
+- update model `Intel RealSense D435i`
 
 ## [v1.1.2] - 2024-08-04
 - [new model] `Intel RealSense R200`
 - update model `Intel RealSense D435i`
-- remove some models of `iris`, `p230`, `p450`, `p600`, `typhoon_h480`
+- remove some models of `iris`, `typhoon_h480`
 
 ## [v1.1.1]
 - update model `Intel RealSense D435i`
@@ -37,7 +43,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - [new model] `typhoon_h480`
 
 ## [v1.0.8]
-- update tf of `P450`
 - add some worlds
 
 ## [v1.0.7]
@@ -52,6 +57,3 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [v1.0.4]
 - [new feature]: add `imu` to `Velodyne VLP 16` (removed in [v1.1.1])
-
-## [v1.0.2]
-- [new model] `P450_Eason`, with `Velodyne VLP 16` &  `Intel RealSense D435i`

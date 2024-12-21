@@ -12,8 +12,8 @@
     <!-- vehicle model and world -->
     <arg name="est" default="ekf2"/>
     <arg name="vehicle" default="iris"/>
-    <arg name="world" default="$(find easondrone_gazebo)/world/indoor/Eason_indoor.world"/>
-    <arg name="sdf" default="$(find easondrone_gazebo)/gazebo_models/uav_models/iris_eason/iris_eason.sdf"/>
+    <arg name="world" default="$(find easondrone_gazebo)/worlds/indoor/easondrone.world"/>
+    <arg name="sdf" default="$(find easondrone_gazebo)/models/drone/iris_d435i_vlp16/iris_d435i_vlp16.sdf"/>
 
     <!-- gazebo configs -->
     <arg name="gui" default="true"/>
