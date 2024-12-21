@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <sdf version="1.6">
-  <model name="D435i">
+  <model name="realsense_d435i">
     <link name="link">
       <inertial>
         <mass>0.0564</mass>
@@ -23,7 +23,7 @@
         <pose>0 0 0 0 0 0</pose>
         <geometry>
          <mesh>
-            <uri>model://D435i/meshes/realsense_d435.stl</uri>
+            <uri>model://realsense_d435i/meshes/realsense_d435.stl</uri>
           </mesh>
         </geometry>
         <material>

@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <sdf version="1.6">
-  <model name="iris_eason">
+  <model name="iris_d435i_mid360">
     <include>
       <uri>model://iris</uri>
     </include>
 
     <include>
-      <uri>model://D435i</uri>
+      <uri>model://realsense_d435i</uri>
       <pose>0.11 0 0 0 0 0</pose>
     </include>
     <joint name="realsense_camera_joint" type="revolute">
-      <child>D435i::link</child>
+      <child>realsense_d435i::link</child>
       <parent>iris::base_link</parent>
       <axis>
         <xyz>0 0 1</xyz>
@@ -22,11 +22,11 @@
     </joint>
 
     <include>
-      <uri>model://VLP16</uri>
+      <uri>model://livox_mid360</uri>
       <pose>0 0 0.045 0 0 0</pose>
     </include>
-    <joint name="VLP16_joint" type="fixed">
-      <child>VLP16::link</child>
+    <joint name="mid360_joint" type="fixed">
+      <child>livox_mid360::livox_base</child>
       <parent>iris::base_link</parent>
       <axis>
         <xyz>0 0 1</xyz>
@@ -59,7 +59,7 @@
     <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
       <robotNamespace>gazebo</robotNamespace>
       <alwaysOn>true</alwaysOn>
-      <updateRate>250.0</updateRate>
+      <updateRate>100.0</updateRate>
       <bodyName>iris::base_link</bodyName>
       <topicName>groundtruth/odom</topicName>
       <gaussianNoise>0.01</gaussianNoise>

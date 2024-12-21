@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <sdf version="1.6">
-  <model name="VLP16">
+  <model name="velodyne_vlp16">
     <link name="link">
       <!-- 物理参数 -->
       <inertial>
@@ -15,11 +15,12 @@
           <izz>2.407e-6</izz>
         </inertia>
       </inertial>
+
       <!-- 显示设置 -->
       <visual name="visual1">
         <geometry>
           <mesh>
-            <uri>model://VLP16/meshes/VLP16_base_1.dae</uri>
+            <uri>model://velodyne_vlp16/meshes/VLP16_base_1.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -29,10 +30,11 @@
           </script>
         </material>
       </visual>
+
       <visual name="visual2">
         <geometry>
           <mesh>
-            <uri>model://VLP16/meshes/VLP16_base_2.dae</uri>
+            <uri>model://velodyne_vlp16/meshes/VLP16_base_2.dae</uri>
           </mesh>
         </geometry>
         <material>
@@ -42,13 +44,15 @@
           </script>
         </material>
       </visual>
+
       <visual name="visual3">
         <geometry>
           <mesh>
-            <uri>model://VLP16/meshes/VLP16_scan.dae</uri>
+            <uri>model://velodyne_vlp16/meshes/VLP16_scan.dae</uri>
           </mesh>
         </geometry>
       </visual>
+
       <!-- 传感器参数设置 -->
       <sensor type='ray' name='VLP16'>
           <ray>
@@ -72,6 +76,7 @@
               <resolution>0.001</resolution>
             </range>
           </ray>
+
           <plugin name='3D_laser' filename='libgazebo_ros_velodyne_laser.so'>
             <topicName>/velodyne_points</topicName>
             <frameName>VLP16_link</frameName>
@@ -79,6 +84,7 @@
             <max_range>200</max_range>
             <gaussianNoise>0.001</gaussianNoise>
           </plugin>
+          
           <always_on>1</always_on>
           <update_rate>20</update_rate>
           <visualize>false</visualize>
