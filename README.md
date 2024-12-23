@@ -1,8 +1,7 @@
-# EasonDrone_Gazebo
+# easondrone_gazebo
 
 ![HitCount](https://img.shields.io/endpoint?url=https%3A%2F%2Fhits.dwyl.com%2FHuaYuXiao%2Feasondrone_gazebo.json%3Fcolor%3Dpink)
 ![Static Badge](https://img.shields.io/badge/ROS-noetic-22314E?logo=ros)
-![Static Badge](https://img.shields.io/badge/C%2B%2B-17-00599C?logo=cplusplus)
 ![Static Badge](https://img.shields.io/badge/Ubuntu-20.04.6-E95420?logo=ubuntu)
 
 The easondrone_gazebo package.
@@ -13,7 +12,6 @@ The easondrone_gazebo package.
 cd ~/easondrone_ws/simulate
 git clone https://github.com/HuaYuXiao/easondrone_gazebo.git
 cd ..
-rm -rf simulate/easondrone_gazebo/build
 catkin_make --source simulate/easondrone_gazebo --build simulate/easondrone_gazebo/build
 ```
 
@@ -25,7 +23,11 @@ roslaunch easondrone_gazebo simulation.launch
 
 ## Acknowledgement
 
-Thanks for following packages:
+Support of `livox_mid360` are based on:
 
-- [prometheus_gazebo](https://github.com/amov-lab/Prometheus/Simulator/gazebo_simulator)
-- [livox_laser_simulation](https://github.com/Livox-SDK/livox_laser_simulation)
+- [livox_laser_simulation](https://github.com/Livox-SDK/livox_laser_simulation) package
+- 3D model of `livox_mid360` from [Livox Technology Company Limited](https://terra-1-g.djicdn.com/65c028cd298f4669a7f0e40e50ba1131/Mid360/mid-360-asm.stp)
+- `.dae` file from [Shaochang Tang](https://github.com/petertheprocess)
+- technique support from [Yunfei Zhu](https://github.com/zyf0205)
+
+Many thanks for some models provided by [prometheus_gazebo](https://github.com/amov-lab/Prometheus/Simulator/gazebo_simulator) package.

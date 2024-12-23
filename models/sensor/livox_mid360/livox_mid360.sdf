@@ -34,21 +34,21 @@
         <pose>0 0 0 0 0 0</pose>  <!-- Position of the sensor -->
 
         <plugin name="gazebo_ros_laser_controller" filename="liblivox_laser_simulation.so">
-          <csv_file_name>/home/easonhua/easondrone_ws/simulate/easondrone_gazebo/models/sensor/livox_mid360/scan_mode/livox_mid360.csv</csv_file_name>  <!-- Path to CSV file -->
+          <csv_file_name>easondrone_ws/simulate/easondrone_gazebo/models/sensor/livox_mid360/scan_mode/livox_mid360.csv</csv_file_name>  <!-- Path to CSV file -->
           
           <ray>
             <scan>
               <horizontal>
                 <samples>100</samples>
                 <resolution>1</resolution>
-                <min_angle>0.0</min_angle>  <!-- Min angle for horizontal scan -->
-                <max_angle>6.28319</max_angle>  <!-- Max angle for horizontal scan -->
+                <min_angle>0.0</min_angle>
+                <max_angle>6.28319</max_angle>
               </horizontal>
               <vertical>
                 <samples>360</samples>
                 <resolution>1</resolution>
-                <min_angle>-0.126126</min_angle>  <!-- Min angle for vertical scan -->
-                <max_angle>0.964467</max_angle>  <!-- Max angle for vertical scan -->
+                <min_angle>-0.126126</min_angle>
+                <max_angle>0.964467</max_angle>
               </vertical>
             </scan>
             <range>
@@ -63,10 +63,12 @@
             </noise>
           </ray>
 
-          <ros_topic>/livox/lidar</ros_topic>  <!-- ROS topic to publish sensor data -->
-          <samples>24000</samples>  <!-- Number of samples for the ray scan -->
-          <downsample>1</downsample>  <!-- Downsampling factor -->
+          <ros_topic>/livox/lidar_raw</ros_topic>
+          <samples>24000</samples>
+          <downsample>1</downsample>
         </plugin>
+        
+        <always_on>1</always_on>
       </sensor>
     </link>
   </model>

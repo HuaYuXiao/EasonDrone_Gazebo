@@ -1,12 +1,16 @@
 <launch>
     <include file="$(find easondrone_gazebo)/launch/mavros_posix_sitl.launch"/>
 
+    <node name="point_cloud_converter" type="point_cloud_converter_node" pkg="point_cloud_converter">
+        <remap from="points_in" to="/livox/lidar_raw" />
+        <remap from="points2_out" to="/livox/lidar" />
+    </node>
+
     <include file="$(find easondrone_gazebo)/launch/transform.launch"/>
 
     <include file="$(find px4ctrl)/launch/px4ctrl.launch"/>
 
     <node type="odom_visualization" pkg="odom_visualization" name="odom_visualization"/>
 
-    <!-- 启动rviz -->
-    <node type="rviz" name="rviz" pkg="rviz" args="-d $(find easondrone_gazebo)/config/simulation.rviz"/>
+    <node type="rviz" name="rviz" pkg="rviz" args="-d $(find easondrone_gazebo)/config/easondrone.rviz"/>
 </launch>

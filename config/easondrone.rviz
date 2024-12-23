@@ -5,9 +5,9 @@ Panels:
     Property Tree Widget:
       Expanded:
         - /State1
-        - /Sensor1
-        - /Sensor1/RGBD1
-        - /Sensor1/LiDAR1
+        - /sensor1
+        - /sensor1/d435i1
+        - /sensor1/lidar1
       Splitter Ratio: 0.43611112236976624
     Tree Height: 382
   - Class: rviz/Selection
@@ -243,7 +243,7 @@ Visualization Manager:
               Use rainbow: true
               Value: true
           Enabled: true
-          Name: RGBD
+          Name: d435i
         - Class: rviz/Image
           Enabled: true
           Image Topic: /monocular/image_raw
@@ -302,7 +302,7 @@ Visualization Manager:
               Invert Rainbow: false
               Max Color: 255; 255; 255
               Min Color: 0; 0; 0
-              Name: PointCloud2
+              Name: velodyne_vlp16
               Position Transformer: XYZ
               Queue Size: 10
               Selectable: true
@@ -317,8 +317,8 @@ Visualization Manager:
             - Alpha: 0.30000001192092896
               Autocompute Intensity Bounds: true
               Autocompute Value Bounds:
-                Max Value: 5.037301063537598
-                Min Value: -0.28094398975372314
+                Max Value: 5.057618141174316
+                Min Value: 0.032171860337257385
                 Value: true
               Axis: Z
               Channel Name: intensity
@@ -326,11 +326,39 @@ Visualization Manager:
               Color: 255; 255; 255
               Color Transformer: AxisColor
               Decay Time: 0
-              Enabled: true
+              Enabled: false
               Invert Rainbow: false
               Max Color: 255; 255; 255
               Min Color: 0; 0; 0
               Name: PointCloud
+              Position Transformer: XYZ
+              Queue Size: 10
+              Selectable: true
+              Size (Pixels): 3
+              Size (m): 0.05000000074505806
+              Style: Flat Squares
+              Topic: /livox/lidar_raw
+              Unreliable: false
+              Use Fixed Frame: true
+              Use rainbow: true
+              Value: false
+            - Alpha: 0.30000001192092896
+              Autocompute Intensity Bounds: true
+              Autocompute Value Bounds:
+                Max Value: 5.0142717361450195
+                Min Value: -0.04316169023513794
+                Value: true
+              Axis: Z
+              Channel Name: intensity
+              Class: rviz/PointCloud2
+              Color: 255; 255; 255
+              Color Transformer: AxisColor
+              Decay Time: 0
+              Enabled: true
+              Invert Rainbow: false
+              Max Color: 255; 255; 255
+              Min Color: 0; 0; 0
+              Name: livox_mid360
               Position Transformer: XYZ
               Queue Size: 10
               Selectable: true
@@ -343,9 +371,9 @@ Visualization Manager:
               Use rainbow: true
               Value: true
           Enabled: true
-          Name: LiDAR
+          Name: lidar
       Enabled: true
-      Name: Sensor
+      Name: sensor
   Enabled: true
   Global Options:
     Background Color: 255; 253; 224
@@ -407,5 +435,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 2110
-  X: 322
-  Y: 132
+  X: 770
+  Y: 486
