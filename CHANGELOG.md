@@ -5,9 +5,10 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## v1.2.1 - 2024-12-20
+## v1.2.1 - 2024-12-21
 - [new model:sensor] `livox_mid360`
 - [new model:drone] `iris_d435i_mid360`
+- [upgrade] upgrade `tf` to `tf2_ros`
 - [remove model:sensor] `livox_mid40`
 - remove all scripts
 
