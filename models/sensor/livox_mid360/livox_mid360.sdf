@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <sdf version="1.6">
   <model name="livox_mid360">
-    <link name="livox_base">
+    <link name="link">
       <inertial>
         <mass>0.1</mass>
         <inertia>
@@ -63,15 +63,10 @@
             </noise>
           </ray>
 
-          <visualize>false</visualize>
+          <ros_topic>/livox/lidar</ros_topic>  <!-- ROS topic to publish sensor data -->
           <samples>24000</samples>  <!-- Number of samples for the ray scan -->
           <downsample>1</downsample>  <!-- Downsampling factor -->
-          <ros_topic>/livox/lidar</ros_topic>  <!-- ROS topic to publish sensor data -->
         </plugin>
-
-        <update_rate>10</update_rate>  <!-- Update rate for the sensor -->
-        <always_on>1</always_on>  <!-- Always keep the sensor on -->
-        <visualize>false</visualize>  <!-- Whether to visualize the sensor data in Gazebo -->
       </sensor>
     </link>
   </model>
