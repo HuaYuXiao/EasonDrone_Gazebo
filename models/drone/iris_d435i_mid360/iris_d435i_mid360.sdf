@@ -9,7 +9,7 @@
       <uri>model://realsense_d435i</uri>
       <pose>0.11 0 0 0 0 0</pose>
     </include>
-    <joint name="realsense_camera_joint" type="revolute">
+    <joint name="d435i_joint" type="fixed">
       <child>realsense_d435i::link</child>
       <parent>iris::base_link</parent>
       <axis>
@@ -26,7 +26,7 @@
       <pose>0 0 0.045 0 0 0</pose>
     </include>
     <joint name="mid360_joint" type="fixed">
-      <child>livox_mid360::livox_base</child>
+      <child>livox_mid360::link</child>
       <parent>iris::base_link</parent>
       <axis>
         <xyz>0 0 1</xyz>
