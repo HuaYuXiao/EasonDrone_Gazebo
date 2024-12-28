@@ -7,6 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## v1.2.2 - 2024-12-28
 - [new feature] drone swarm
+- remove some useless drone models
 
 ## v1.2.1 - 2024-12-23
 - [new model:sensor] `livox_mid360`
