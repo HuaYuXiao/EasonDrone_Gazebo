@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## v1.2.2 - 2024-12-28
 - [new feature] drone swarm
-- remove some useless drone models
+- remove some useless models
 
 ## v1.2.1 - 2024-12-23
 - [new model:sensor] `livox_mid360`
@@ -18,7 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## v1.2.0 - 2024-08-24
 - [new model] `iris_d435i_vlp16`, with `Velodyne VLP 16`, `Intel RealSense D435i` and `monocular camera`'
-- remove useless models
+- remove some useless models
 - remove useless config files
 
 ## [v1.1.4] - 2024-08-13
