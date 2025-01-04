@@ -1,10 +1,7 @@
 <launch>
     <include file="$(find easondrone_gazebo)/launch/mavros_posix_sitl.launch"/>
 
-    <node name="point_cloud_converter" type="point_cloud_converter_node" pkg="point_cloud_converter">
-        <remap from="points_in" to="/livox/lidar_raw" />
-        <remap from="points2_out" to="/livox/lidar" />
-    </node>
+    <node name="filter_pc" type="filter_pc" pkg="easondrone_mapping"/>
 
     <include file="$(find easondrone_gazebo)/launch/transform.launch"/>
 
