@@ -51,7 +51,7 @@
 
     <model name="round_bucket_mid">
       <include>
-        <uri>model://round_bucket_mid</uri>>
+        <uri>model://round_bucket_mid</uri>
         <pose> 5 0 0.01 0 0 0 </pose>
       </include>
     </model>

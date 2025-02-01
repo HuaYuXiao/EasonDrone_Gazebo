@@ -113,7 +113,7 @@
           <robotNamespace>realsense</robotNamespace>
           <alwaysOn>true</alwaysOn>
           <updateRate>30</updateRate>
-          <cameraName>/stereo_camera</cameraName>
+          <cameraName>stereo_camera</cameraName>
           <imageTopicName>image_raw</imageTopicName>
           <cameraInfoTopicName>camera_info</cameraInfoTopicName>
           <frameName>realsense_camera_frame</frameName>
@@ -150,7 +150,7 @@
           <baseline>0.2</baseline>
           <alwaysOn>true</alwaysOn>
           <updateRate>90</updateRate>
-          <cameraName>/depth_camera</cameraName>
+          <cameraName>depth_camera</cameraName>
           <imageTopicName>color/image_raw</imageTopicName>
           <cameraInfoTopicName>color/camera_info</cameraInfoTopicName>
           <depthImageTopicName>depth/image_raw</depthImageTopicName>
