@@ -34,7 +34,7 @@
         <pose>0 0 0 0 0 0</pose>  <!-- Position of the sensor -->
 
         <plugin name="gazebo_ros_laser_controller" filename="liblivox_laser_simulation.so">
-          <csv_file_name>easondrone_ws/simulate/easondrone_gazebo/models/sensor/livox_mid360/scan_mode/livox_mid360.csv</csv_file_name>  <!-- Path to CSV file -->
+          <csv_file_name>easondrone_ws/src/simulate/easondrone_gazebo/models/sensor/livox_mid360/scan_mode/livox_mid360.csv</csv_file_name>  <!-- Path to CSV file -->
           
           <ray>
             <scan>
